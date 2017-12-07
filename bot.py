@@ -41,3 +41,34 @@ def dev_check(id):
 @bot.event
 async def on_guild_join(guild):
     print("Banana has joined a new guild: {}".format(guild.name))
+    
+    
+@bot.event
+async def on_ready():
+        """Shows bot's status"""
+        print("Logged in as:")
+        print("Name : {}".format(bot.user.name))
+        print("ID : {}".format(bot.user.id))
+        print("----------------")
+        server = len(bot.guilds)
+        users = sum(1 for _ in bot.get_all_members())
+        while 1==1:
+            await bot.change_presence(game=discord.Game(name='with {} servers'.format(server)))
+            await asyncio.sleep(10)
+            await bot.change_presence(game=discord.Game(name='with {} users'.format(users)))
+            await asyncio.sleep(10)                         
+            await bot.change_presence(game=discord.Game(name='PREFIX = *'))
+            await asyncio.sleep(10)
+            await bot.change_presence(game=discord.Game(name='*help | *invite'))
+            await asyncio.sleep(10)
+            await bot.change_presence(game=discord.Game(name='Banana bot!'))
+            await asyncio.sleep(25)
+            
+            
+@bot.command(name='presence')
+@commands.is_owner()
+async def _set(ctx, Type=None,*,thing=None):
+    """What AM I doing?!?!?!"""
+    if Type is None:
+        await ctx.send('Do it right, plz! Usage: *presence [game/stream] [msg]')
+    else
