@@ -82,7 +82,7 @@ async def _set(ctx, Type=None,*,thing=None):
         await bot.change_presence(game=None)
         await ctx.send('Aye aye, I am not playing anything, anymore!')
       else:
-        await ctx.send('Want me to do something? YOU do it right first. Usage: *presence [game/stream] [msg]
+        await ctx.send('Want me to do something? YOU do it right first. Usage: *presence [game/stream] [msg]')
 
                        
 @bot.command()
