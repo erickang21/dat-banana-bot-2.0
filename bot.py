@@ -119,4 +119,19 @@ async def say(ctx, *, message:str)
         
 @bot.command()
 async def invite(ctx)
+    """Allow my bot to join the hood. YOUR hood."""
+    await ctx.send("Lemme join that hood -> https://discordapp.com/oauth2/authorize?client_id=388476336777461770&scope=bot&permissions=2146958591")                       
+
                        
+@bot.command()
+async def discord(ctx)
+    """We have an awesome hood to join, join now!"""
+    await ctx.send("Your turn to join the hood -> https://discord.gg/wvkVknA")
+             
+                       
+@bot.command()
+async def rolldice(ctx):
+    """Rolls a 6 sided die."""
+    choices = ['1', '2', '3', '4', '5', '6']
+    color = discord.Color(value=0x00ff00)
+    em = discord.Embed(color=color, title
