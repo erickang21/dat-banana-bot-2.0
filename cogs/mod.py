@@ -6,7 +6,6 @@ from discord.est import commands
 
 
 class mod:
-
     def __init__(self, bot):
         self.bot = bot
         
@@ -40,7 +39,7 @@ class mod:
         
         
     @commands.command()
-    async def serverinfo(self, ctx)
+    async def serverinfo(self, ctx):
         """Are you a nerd? Here's some server info."""
         guild = ctx.guild
         roles = [x.name for x in guild.roles]
