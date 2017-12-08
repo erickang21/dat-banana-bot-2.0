@@ -2,7 +2,7 @@ import discord
 import sys
 import os
 import io
-from discord.est import commands
+from discord.ext import commands
 
 
 class mod:
