@@ -36,28 +36,6 @@ def dev_check(id):
     if id in devs:
         return True
     return False
-    
-    
-@bot.event
-async def on_ready():
-        """Shows bot's status"""
-        print("Logged in as:")
-        print("Name : {}".format(bot.user.name))
-        print("ID : {}".format(bot.user.id))
-        print("----------------")
-        server = len(bot.guilds)
-        users = sum(1 for _ in bot.get_all_members())
-        while 1==1:
-            await bot.change_presence(game=discord.Game(name='with {} servers'.format(server)))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='with {} users'.format(users)))
-            await asyncio.sleep(10)                         
-            await bot.change_presence(game=discord.Game(name='PREFIX = *'))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='*help | *invite'))
-            await asyncio.sleep(10)
-            await bot.change_presence(game=discord.Game(name='Banana bot!'))
-            await asyncio.sleep(25)
             
             
 @bot.command(name='presence')
