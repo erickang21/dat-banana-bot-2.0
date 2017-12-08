@@ -71,4 +71,29 @@ async def _set(ctx, Type=None,*,thing=None):
     """What AM I doing?!?!?!"""
     if Type is None:
         await ctx.send('Do it right, plz! Usage: *presence [game/stream] [msg]')
-    else
+    else:
+      if Type.lower() == 'stream':
+        await bot.change_presence(game=discord.game(name=thing,type=1,url='https://www.twitch.tv/a'),status='online')
+        await ctx.send(f'Aye aye, I am now streaming {thing}!')
+      elif Type.lower() == 'game':
+        await bot.change_presence(game=discord.game(name=thing))
+        await ctx.send(f'Aye aye, I am now playing {thing}!')
+      elif Type.lower() == 'clear':
+        await bot.change_presence(game=None)
+        await ctx.send('Aye aye, I am not playing anything, anymore!')
+      else:
+        await ctx.send('Want me to do something? YOU do it right first. Usage: *presence [game/stream] [msg]
+
+                       
+@bot.command()
+async def ping(ctx):
+    """Websocket latency, delivered thru the finest ping pong."""
+    em = discord.Embed(color=discord.Color(value=0x00ff00))
+    em.title = "PoIIIng! Your supersonic latency is:"
+    em.description = "f'{bot.ws.latency * 1000:.4f} ms'
+    await ctx.send(embed=em)
+                       
+                       
+@bot.command()
+
+        
