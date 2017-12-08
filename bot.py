@@ -18,7 +18,7 @@ bot.load_extension("cogs.math")
 bot.load_extension("cogs.mod")
 
 
-def cleanup_code(content)
+def cleanup_code(content):
     # remove ```py\n```
     if content.startswith('```') and content.endswith('```'):
         return '\n'.join(content.split('\n')[1:-1])
