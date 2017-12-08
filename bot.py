@@ -118,3 +118,5 @@ async def say(ctx, *, message:str)
                        
         
 @bot.command()
+async def invite(ctx)
+                       
