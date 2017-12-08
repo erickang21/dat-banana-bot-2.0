@@ -117,3 +117,4 @@ async def say(ctx, *, message:str)
     await ctx.send(message)                   
                        
         
+@bot.command()
