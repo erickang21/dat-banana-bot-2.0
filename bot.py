@@ -90,12 +90,12 @@ async def ping(ctx):
     """Websocket latency, delivered thru the finest ping pong."""
     em = discord.Embed(color=discord.Color(value=0x00ff00))
     em.title = "PoIIIng! Your supersonic latency is:"
-    em.description = "f'{bot.ws.latency * 1000:.4f} ms'
+    em.description = f'{bot.ws.latency * 1000:.4f} ms'
     await ctx.send(embed=em)
                        
                        
 @bot.command()
-async def textface(ctx, Type)
+async def textface(ctx, Type):
     "Get that lenny, tableflip, or shrug face in here!"
     if Type is None:
         await ctx.send('That is NOT one of the dank textfaces in here yet. Use: *textface [lenny/tableflip/shrug]')
@@ -111,20 +111,20 @@ async def textface(ctx, Type)
                        
                        
 @bot.command()
-async def say(ctx, *, message:str)
+async def say(ctx, *, message:str):
     '''I say what you want me to say. Oh boi...'''
     await ctx.message.delete()
     await ctx.send(message)                   
                        
         
 @bot.command()
-async def invite(ctx)
+async def invite(ctx):
     """Allow my bot to join the hood. YOUR hood."""
     await ctx.send("Lemme join that hood -> https://discordapp.com/oauth2/authorize?client_id=388476336777461770&scope=bot&permissions=2146958591")                       
 
                        
 @bot.command()
-async def discord(ctx)
+async def discord(ctx):
     """We have an awesome hood to join, join now!"""
     await ctx.send("Your turn to join the hood -> https://discord.gg/wvkVknA")
              
