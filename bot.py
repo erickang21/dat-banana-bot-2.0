@@ -106,7 +106,7 @@ async def textface(ctx, Type):
           await ctx.send('(ノಠ益ಠ)ノ彡┻━┻')
         elif Type.lower() == 'shrug':
           await ctx.send('¯\_(ツ)_/¯')
-        else
+        else:
           await ctx.send('That is NOT one of the dank textfaces in here yet. Use: *textface [lenny/tableflip/shrug]')
                        
                        
