@@ -39,11 +39,6 @@ def dev_check(id):
     
     
 @bot.event
-async def on_guild_join(guild):
-    print("Banana has joined a new guild: {}".format(guild.name))
-    
-    
-@bot.event
 async def on_ready():
         """Shows bot's status"""
         print("Logged in as:")
