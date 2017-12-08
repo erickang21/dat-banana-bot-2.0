@@ -28,7 +28,7 @@ def cleanup_code(content):
     
 @bot.event
 async def on_ready():
-print('Bot is online!')
+   print('Bot is online!')
 
 def dev_check(id):
     with open('data/devs.json') as f:
