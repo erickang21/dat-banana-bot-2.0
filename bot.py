@@ -10,7 +10,7 @@ import aiohttp
 import pip
 import random
 import textwrap
-from contextlib import redirect st_dout
+from contextlib import redirect_stdout
 from discord.ext import commands
 import json
 bot = commands.Bot(command_prefix='*',description="The revamped dat banana bot made by dat banana boi#1982.\n\nHelp Commands",owner_id=277981712989028353)
