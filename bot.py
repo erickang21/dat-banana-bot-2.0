@@ -60,11 +60,9 @@ async def _set(ctx, Type=None,*,thing=None):
                        
 @bot.command()
 async def ping(ctx):
-    """Websocket latency, delivered thru the finest ping pong."""
-    em = discord.Embed(color=discord.Color(value=0x00ff00))
-    em.title = "PoIIIng! Your supersonic latency is:"
-    em.description = f'{bot.ws.latency * 1000:.4f} ms'
-    await ctx.send(embed=em)
+    """Websocket latency, delivered thru the finest ping pong."""
+    em = discord.Embed(title="PoIIIng! Your supersonic latency is:", description=f''{bot.ws.latency * 1000:.4f} ms', color=0x00ff00)
+    await ctx.send(embed=em)
                        
                        
 @bot.command()
