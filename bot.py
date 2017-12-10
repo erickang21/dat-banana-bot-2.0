@@ -82,7 +82,7 @@ async def textface(ctx, Type):
 
         
 @bot.command()
-async def timer(ctx, *, message:str):
+async def timer(ctx, timer: int):
     """Counts down till it's over! Usage: *timer [time in secs]"""
     try:
         await ctx.send("Timer started and rolling! :timer:")
