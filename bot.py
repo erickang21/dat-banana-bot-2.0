@@ -84,7 +84,7 @@ async def textface(ctx, Type):
 @bot.command()
 async def timer(ctx, timer):
     """Counts down till it's over! Usage: *timer [time in secs]"""
-    if timer = int:
+    if isinstance(timer, int):
         await ctx.send("Timer started and rolling! :timer:")
         await asyncio.sleep(timer)
         await ctx.send("TIME'S UP! :clock:")
