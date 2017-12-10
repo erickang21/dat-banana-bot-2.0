@@ -17,8 +17,6 @@ class mod:
             await user.send(msg)
             await ctx.message.delete()            
             await ctx.send("SuccESS! Your DM has made it! :white_check_mark: ")
-            time.sleep(5)
-            await ctx.message.delete() 
         except:
             await ctx.send("Error :x:. Make sure your message is shaped in this way: *dm [tag person] [msg]")
             
