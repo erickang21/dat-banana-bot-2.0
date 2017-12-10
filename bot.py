@@ -79,7 +79,18 @@ async def textface(ctx, Type):
           await ctx.send('¯\_(ツ)_/¯')
         else:
           await ctx.send('That is NOT one of the dank textfaces in here yet. Use: *textface [lenny/tableflip/shrug]')
-                       
+
+        
+@bot.command()
+async def timer(ctx, *, message:str):
+    """Counts down till it's over! Usage: *timer [time in secs]"""
+    try:
+        await ctx.send("Timer started and rolling! :timer:")
+        await asyncio.sleep(timer)
+        await ctx.send("TIME'S UP! :clock:")
+    except:
+        await ctx.send("UH OH! Timer did not start. Usage: *timer [time in secs]. Make sure the time is a *whole number*.")
+        
                        
 @bot.command()
 async def say(ctx, *, message:str):
