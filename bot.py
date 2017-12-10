@@ -94,8 +94,8 @@ async def invite(ctx):
     await ctx.send("Lemme join that hood -> https://discordapp.com/oauth2/authorize?client_id=388476336777461770&scope=bot&permissions=2146958591")                       
 
                        
-@bot.command()
-async def discord(ctx):
+@bot.command(name='discord')
+async def _discord(ctx):
     """We have an awesome hood to join, join now!"""
     await ctx.send("Your turn to join the hood -> https://discord.gg/wvkVknA")
              
