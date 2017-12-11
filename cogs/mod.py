@@ -19,7 +19,20 @@ class mod:
             await ctx.send("SuccESS! Your DM has made it! :white_check_mark: ")
         except:
             await ctx.send("Error :x:. Make sure your message is shaped in this way: *dm [tag person] [msg]")
-            
+    
+    
+    @commands.command()
+    @commands.has_permissions(administrator = True)
+    async def warn(self, ctx, user: discord.Member, *, reason: str)
+        """It's time to stop. Sends that warning. Usage: *warn [tag person] [reason]"""
+        try:
+            color = discord.Color(value=f44242)
+            em = discord.Embed(color=color, title=f"ATTENTION: You have been warned by **{ctx.message.author.name}**, from **{ctx.author.guild.name}**. Better be a good boi! Reason:", description=reason)
+            await user.send(embed=em)
+            await ctx.message.delete()
+            await ctx.send("User has been DM'd :white_check_mark:. Pray that the user is a gud boi now. :pray:")
+        except:
+            await ctx.send("Something happened and the DM could not make it :x:. The user could be blocking DMs from the server, or you did not use the format correctly. Usage: *warn [tag person] [reason].")    
             
     
     @commands.command()
