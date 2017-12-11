@@ -26,8 +26,8 @@ class mod:
     async def warn(self, ctx, user: discord.Member, *, reason: str):
         """It's time to stop. Sends that warning. Usage: *warn [tag person] [reason]"""
         try:
-            color = discord.Color(value=f44242)
-            em = discord.Embed(color=color, title=f"ATTENTION: You have been warned by **{ctx.message.author.name}**, from **{ctx.author.guild.name}**. Better be a good boi! Reason:", description=reason)
+            color = discord.Color(value=0xf44242)
+            em = discord.Embed(color=color, title=f"ATTENTION: You have been warned by **{ctx.message.author.name}**, from **{ctx.author.guild.name}**.", description=f"{reason{")
             await user.send(embed=em)
             await ctx.message.delete()
             await ctx.send("User has been DM'd :white_check_mark:. Pray that the user is a gud boi now. :pray:")
