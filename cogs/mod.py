@@ -23,7 +23,7 @@ class mod:
     
     @commands.command()
     @commands.has_permissions(administrator = True)
-    async def warn(self, ctx, user: discord.Member, *, reason: str)
+    async def warn(self, ctx, user: discord.Member, *, reason: str):
         """It's time to stop. Sends that warning. Usage: *warn [tag person] [reason]"""
         try:
             color = discord.Color(value=f44242)
