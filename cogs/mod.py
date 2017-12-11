@@ -33,7 +33,7 @@ class mod:
             await ctx.send("User has been DM'd :white_check_mark:. Pray that the user is a gud boi now. :pray:")
         except:
             await ctx.send("Something happened and the DM could not make it :x:. The user could be blocking DMs from the server, or you did not use the format correctly. Usage: *warn [tag person] [reason].")    
-            
+             
     
     @commands.command()
     @commands.has_permissions(kick_members = True)
@@ -67,16 +67,16 @@ class mod:
             embed.set_thumbnail(url=guild.icon_url)
         else:
             embed.set_thumbnail(url="https://cdn.discordapp.com/embed/avatars/0.png")
-        embed.add_field(name='__Server __', value=str(guild.name))
-        embed.add_field(name='__Server ID__', value=str(guild.id))
-        embed.add_field(name='__Owner__', value=str(guild.owner))
-        embed.add_field(name='__Owner ID__', value=guild.owner_id) 
-        embed.add_field(name='__Member Count__', value=str(guild.member_count))
-        embed.add_field(name='__Text/Voice Channels__', value=str(channels))
-        embed.add_field(name='__Server Region__', value='%s' % str(guild.region))
-        embed.add_field(name='__ Total Roles__', value='%s' % str(role_length))
-        embed.add_field(name='__Roles__', value='%s' % str(roles))
-        embed.set_footer(text='Created - %s' % time)
+            embed.add_field(name='__Server __', value=str(guild.name))
+            embed.add_field(name='__Server ID__', value=str(guild.id))
+            embed.add_field(name='__Owner__', value=str(guild.owner))
+            embed.add_field(name='__Owner ID__', value=guild.owner_id) 
+            embed.add_field(name='__Member Count__', value=str(guild.member_count))
+            embed.add_field(name='__Text/Voice Channels__', value=str(channels))
+            embed.add_field(name='__Server Region__', value='%s' % str(guild.region))
+            embed.add_field(name='__ Total Roles__', value='%s' % str(role_length))
+            embed.add_field(name='__Roles__', value='%s' % str(roles))
+            embed.set_footer(text='Created - %s' % time)
         
         await ctx.send(embed=embed)
         
