@@ -99,8 +99,9 @@ async def eightball(ctx, *, message:str):
     """Really desperate? Ask the 8ball for advice. Only yes/no questions!"""
     choices = ['It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes, definitely.', 'You may rely on it.', 'As I see it, yes.', 'Most likely.', ' Outlook good.', 'Yes.', 'Signs point to yes.', 'Reply hazy, try again.', 'Ask again later.', 'Better not tell you now.', 'Cannot predict now.', 'Concentrate and ask again.', 'Do not count on it.', 'My reply is no.', 'My sources say no.', 'Outlook not so good.', 'Very doubtful.']
     color = discord.Color(value=0xeaff29)
-    em=discord.Embed(color=color, title=f"{ctx.message.author.name}: {message}", description=random.choice(choices))
+    em=discord.Embed(color=color, title=f"{message}", description=random.choice(choices))
     em.set_thumbnail(url="https://vignette.wikia.nocookie.net/battlefordreamislandfanfiction/images/5/53/8-ball_my_friend.png/revision/latest?cb=20161109021012")
+    embed.set_footer(text=f"Sent by {ctx.message.author.name}")
     await ctx.message.delete()
     await ctx.send(embed=em)
     
