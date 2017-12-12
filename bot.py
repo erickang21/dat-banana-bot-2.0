@@ -120,7 +120,18 @@ async def rolldice(ctx):
     color = discord.Color(value=0x00ff00)
     em = discord.Embed(color=color, title='Rolled! (1 6-sided die)', description=random.choice(choices))
     await ctx.send(embed=em)
-                       
+
+    
+@bot.command()
+async def botinfo(ctx):
+    """Learn about me! If you want."""
+    color = discord.Color(value=0x00f00)
+    em = discord.Embed(color=color, title='Bot Info: dat banana bot#0170', description='Created by dat banana boi#1982. Contributed to by Free TNT #5796 and 4JR#2713. It is a multipurpose Discord bot, made for fun, games, and more. No code is directly copied from other bots. Feel free to invite this bot to your servers. Thank you for using dat banana bot! The prefix is *  . Type *help for commands, and *help [command] to view specifics of a command.'
+    await ctx.send(embed=em)                  
+                                                                   
+                                                                   
+                                   
+    
                        
 @bot.command(hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
