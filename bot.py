@@ -25,7 +25,15 @@ def cleanup_code(content):
 
     return content.strip('` \n')
     
-    
+  
+@bot.event
+async def on_guild_join():
+    lol = bot.get_channel(390255995768799245)
+    color = discord.Color(value=0x00f00)
+    em = discord.Embed(color=color, title="dat banana bot has joined another server!", description=f"Server: **{ctx.author.guild.name}**"
+    await lol.send(embed=em)
+
+
 @bot.event
 async def on_ready():
    print('Bot is online!')
