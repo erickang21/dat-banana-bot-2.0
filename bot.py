@@ -92,8 +92,17 @@ async def timer(ctx, timer):
         await ctx.send("Timer started and rolling! :timer:")
         await asyncio.sleep(float(timer))
         await ctx.send("TIME'S UP! :clock:")
+
         
-                              
+@bot.command()
+async def eightball(ctx, *, message:str):
+    """Really desperate? Ask the 8ball for advice. Only yes/no questions!"""
+    choices = ['It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes, definitely.', 'You may rely on it.', 'As I see it, yes.', 'Most likely.', ' Outlook good.', 'Yes.', 'Signs point to yes.', 'Reply hazy, try again.', 'Ask again later.', 'Better not tell you now.', 'Cannot predict now.', 'Concentrate and ask again.', 'Do not count on it.', 'My reply is no.', 'My sources say no.', 'Outlook not so good.', 'Very doubtful.']
+    color = discord.Color(value=0xeaff29)
+    em=discord.Embed(color=color, title=message, description=random.choice(choices))
+    em.set_thumbnail(url="https://vignette.wikia.nocookie.net/battlefordreamislandfanfiction/images/5/53/8-ball_my_friend.png/revision/latest?cb=20161109021012")
+
+    
 @bot.command()
 async def say(ctx, *, message:str):
     '''I say what you want me to say. Oh boi...'''
