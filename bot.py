@@ -101,7 +101,10 @@ async def eightball(ctx, *, message:str):
     color = discord.Color(value=0xeaff29)
     em=discord.Embed(color=color, title=message, description=random.choice(choices))
     em.set_thumbnail(url="https://vignette.wikia.nocookie.net/battlefordreamislandfanfiction/images/5/53/8-ball_my_friend.png/revision/latest?cb=20161109021012")
+    await ctx.message.delete()
     await ctx.send(embed=em)
+    
+    
     
 @bot.command()
 async def say(ctx, *, message:str):
