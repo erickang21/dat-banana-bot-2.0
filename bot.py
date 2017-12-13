@@ -88,7 +88,30 @@ async def textface(ctx, Type):
           await ctx.send('¯\_(ツ)_/¯')
         else:
           await ctx.send('That is NOT one of the dank textfaces in here yet. Use: *textface [lenny/tableflip/shrug]')
- 
+
+        
+@bot.command()
+async def hack(ctx, msg:str):
+    """Hack someone's account! Try it!"""
+    await ctx.send(f"Hacking! Target: {msg}")
+    asyncio.sleep(3)
+    await msg.edit(content="Accessing Discord Files... [▓▓    ]")
+    asyncio.sleep(3)
+    await msg.edit(content="Accessing Discord Files... [▓▓▓   ]")
+    asyncio.sleep(3)
+    await msg.edit(content="Accessing Discord Files... [▓▓▓▓▓ ]")
+    asyncio.sleep(3)
+    await msg.edit(content="Accessing Discord Files COMPLETE! [▓▓▓▓▓▓]")
+    asyncio.sleep(3)
+    await msg.edit(content="Retrieving Login Info... [▓▓▓    ]")
+    asyncio.sleep(3)
+    await msg.edit(content="Retrieving Login Info... [▓▓▓▓▓ ]")
+    asyncio.sleep(3)
+    await msg.edit(content="Retrieving Login Info... [▓▓▓▓▓▓ ]")
+    asyncio.sleep(10)
+    await msg.edit(content=f"An error has occurred hacking {msg}'s account. Please try again later. :x:")
+    
+        
         
 @bot.command()
 async def timer(ctx, timer):
