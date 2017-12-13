@@ -91,7 +91,7 @@ async def textface(ctx, Type):
 
         
 @bot.command()
-async def hack(ctx, user:str):
+async def hack(ctx, user: discord.Member):
     """Hack someone's account! Try it!"""
     msg = await ctx.send(f"Hacking! Target: {msg}")
     asyncio.sleep(3)
