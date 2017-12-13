@@ -93,7 +93,7 @@ async def textface(ctx, Type):
 @bot.command()
 async def hack(ctx, msg:str):
     """Hack someone's account! Try it!"""
-    await ctx.send(f"Hacking! Target: {msg}")
+    msg = await ctx.send(f"Hacking! Target: {msg}")
     asyncio.sleep(3)
     await msg.edit(content="Accessing Discord Files... [▓▓    ]")
     asyncio.sleep(3)
