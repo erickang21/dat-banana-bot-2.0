@@ -91,7 +91,7 @@ async def textface(ctx, Type):
 
         
 @bot.command()
-async def hack(ctx, msg:str):
+async def hack(ctx, user:str):
     """Hack someone's account! Try it!"""
     msg = await ctx.send(f"Hacking! Target: {msg}")
     asyncio.sleep(3)
@@ -109,7 +109,7 @@ async def hack(ctx, msg:str):
     asyncio.sleep(3)
     await msg.edit(content="Retrieving Login Info... [▓▓▓▓▓▓ ]")
     asyncio.sleep(10)
-    await msg.edit(content=f"An error has occurred hacking {msg}'s account. Please try again later. :x:")
+    await msg.edit(content=f"An error has occurred hacking {user}'s account. Please try again later. :x:")
     
         
         
