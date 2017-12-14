@@ -10,13 +10,18 @@ class math:
        self.bot = bot
     
     
-    @commands.command()
-    async def add(self, ctx, num: int, num2: int):
-            '''It...ADDS? Yea. Usage: *add [no.1] [no.2]'''
+    @commands.command(aliases=['calculate', 'math'])
+    async def calc(self, ctx, num: int, num2: int):
+            '''Do those 4 simple operations with this bad boi.'''
             if num is None:
-                await ctx.send("Aren't you stupid enough? Usage: *add [no.1] [no.2]")
+                await ctx.send("Aren't you stupid enough? Usage: *calc [no.1] [no.2]")
             else:
-                await ctx.send(num + num2)
+                await ctx.send("Choose an operation from the 4 below.")
+                await ctx.add_reaction("\U00002795")
+                await ctx.add_reaction("\U00002796")
+                await ctx.add_reaction("\U00002716")
+                await ctx.add_reaction("\U00002797")
+                
                 
     @commands.command()
     async def subtract(self, ctx, num: int, num2: int):
