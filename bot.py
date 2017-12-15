@@ -175,13 +175,13 @@ async def logout(ctx):
         return
     
     msg = await ctx.send("Shutting down...")
-    asyncio.sleep(10)
+    asyncio.sleep(20)
     await msg.edit(content="Shutting down... [▓▓    ]") 
-    asyncio.sleep(10)
+    asyncio.sleep(20)
     await msg.edit(content="Shutting down... [▓▓▓▓  ]")
-    asyncio.sleep(10)
+    asyncio.sleep(20)
     await msg.edit(content="Shutting down... [▓▓▓▓▓▓]")
-    asyncio.sleep(14)
+    asyncio.sleep(25)
     await msg.edit(content="Goodbye! :wave:")
     await bot.logout()
 
