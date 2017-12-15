@@ -167,12 +167,21 @@ async def rolldice(ctx):
     await ctx.send(embed=em)
 
     
-               
-                                                                   
-                                                                   
-                                   
-    
-                       
+@bot.command()
+async def logout(ctx):
+    """Makes the bot shut UP and then shut DOWN."""
+    msg = await ctx.send("Shutting down...")
+    asyncio.sleep(5)
+    await msg.edit(content="Shutting down... [▓▓    ]") 
+    asyncio.sleep(5)
+    await msg.edit(content="Shutting down... [▓▓▓▓  ]")
+    asyncio.sleep(5)
+    await msg.edit(content="Shutting down... [▓▓▓▓▓▓]")
+    asyncio.sleep(7)
+    await msg.edit(content="Goodbye! :wave:")
+    await bot.logout()
+
+                      
 @bot.command(hidden=True, name='eval')
 async def _eval(ctx, *, body: str):
 
