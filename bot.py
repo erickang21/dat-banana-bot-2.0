@@ -175,13 +175,13 @@ async def restart(ctx):
         return
     
     msg = await ctx.send("Shutting down...")
-    asyncio.sleep(20)
+    asyncio.sleep(60)
     await msg.edit(content="Shutting down... [▓▓    ]") 
-    asyncio.sleep(20)
+    asyncio.sleep(60)
     await msg.edit(content="Shutting down... [▓▓▓▓  ]")
-    asyncio.sleep(20)
+    asyncio.sleep(60)
     await msg.edit(content="Shutting down... [▓▓▓▓▓▓]")
-    asyncio.sleep(25)
+    asyncio.sleep(60)
     await msg.edit(content="Goodbye! :wave:")
     await bot.logout()
 
