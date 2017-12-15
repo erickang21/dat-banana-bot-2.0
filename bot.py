@@ -169,8 +169,8 @@ async def rolldice(ctx):
 
     
 @bot.command()
-async def logout(ctx):
-    """Makes the bot shut UP and then shut DOWN."""
+async def restart(ctx):
+    """Makes the bot shut UP and then shut DOWN, then start up again."""
     if not dev_check(ctx.author.id):
         return
     
