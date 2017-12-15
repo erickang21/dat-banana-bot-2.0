@@ -145,6 +145,7 @@ async def say(ctx, *, message:str):
     await ctx.message.delete()
     await ctx.send(message)                   
                        
+
         
 @bot.command()
 async def invite(ctx):
@@ -170,6 +171,9 @@ async def rolldice(ctx):
 @bot.command()
 async def logout(ctx):
     """Makes the bot shut UP and then shut DOWN."""
+    if not dev_check(ctx.author.id):
+        return
+    
     msg = await ctx.send("Shutting down...")
     asyncio.sleep(5)
     await msg.edit(content="Shutting down... [▓▓    ]") 
