@@ -120,7 +120,7 @@ async def anim(ctx, Type):
     if Type is None:
         await ctx.send('Probably a really cool animation, but we have not added them yet! But hang in there! You never know... For a current list, type *anim list')
     else:
-        elif Type.lower() == 'wtf':
+        if Type.lower() == 'wtf':
           msg = await ctx.send("```W```")
           await asyncio.sleep(1)
           await msg.edit(content="```WO```")
