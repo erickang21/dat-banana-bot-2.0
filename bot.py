@@ -114,7 +114,7 @@ async def hack(ctx, user: discord.Member):
     await msg.edit(content=f"An error has occurred hacking {user}'s account. Please try again later. ❌")
     
       
-@bot.command(aliases=['animation', 'a')
+@bot.command(aliases=['animation', 'a'])
 async def anim(ctx):
     """Animations! Usage: *anim [type]. For a list, use *anim list."""
     if Type is None:
