@@ -96,25 +96,76 @@ async def textface(ctx, Type):
 async def hack(ctx, user: discord.Member):
     """Hack someone's account! Try it!"""
     msg = await ctx.send(f"Hacking! Target: {user}")
-    asyncio.sleep(3)
+    await asyncio.sleep(2)
     await msg.edit(content="Accessing Discord Files... [▓▓    ]")
-    asyncio.sleep(3)
+    await asyncio.sleep(2)
     await msg.edit(content="Accessing Discord Files... [▓▓▓   ]")
-    asyncio.sleep(3)
+    await asyncio.sleep(2)
     await msg.edit(content="Accessing Discord Files... [▓▓▓▓▓ ]")
-    asyncio.sleep(3)
+    await asyncio.sleep(2)
     await msg.edit(content="Accessing Discord Files COMPLETE! [▓▓▓▓▓▓]")
-    asyncio.sleep(3)
+    await asyncio.sleep(2)
     await msg.edit(content="Retrieving Login Info... [▓▓▓    ]")
-    asyncio.sleep(3)
+    await asyncio.sleep(3)
     await msg.edit(content="Retrieving Login Info... [▓▓▓▓▓ ]")
-    asyncio.sleep(3)
+    await asyncio.sleep(3)
     await msg.edit(content="Retrieving Login Info... [▓▓▓▓▓▓ ]")
-    asyncio.sleep(10)
+    await asyncio.sleep(4)
     await msg.edit(content=f"An error has occurred hacking {user}'s account. Please try again later. ❌")
     
+      
+@bot.command(aliases=['animation', 'a')
+async def anim(ctx):
+    """Animations! Usage: *anim [type]. For a list, use *anim list."""
+    if Type is None:
+        await ctx.send('Probably a really cool animation, but we have not added them yet! But hang in there! You never know... For a current list, type *anim list')
+    else:
+        if Type.lower() == 'wtf':
+          msg = await ctx.send("```W```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WO```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WOT```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WOT D```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WOT DA```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WOT DA F```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WOT DA FU```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WOT DA FUK```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```WOT DA FUK!```")
+          await asyncio.sleep(1)
+          await msg.edit(content="WOT DA FUK!")
+        if Type.lower() == 'mom':
+          msg = await ctx.send("```Y```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```YO```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```YO M```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```YO MO```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```YO MOM```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```YO MOM!```")
+          await asyncio.sleep(1)
+          await msg.edit(content="YO MOM!")
+        else:
+          await ctx.send('Probably a really cool animation, but we have not added them yet! But hang in there! You never know... For a current list, type *anim list')              
         
-        
+
+@anim.command()
+async def list(ctx):
+    color = discord.Color(value=0x00ff00)
+    em=discord.Embed(color=color, title="Current List of Awesome Animations:", description="wtf (*anim wtf), mom (*anim mom).")
+    em.set_footer(text="We will always be adding new animations!")
+    await ctx.send(embed=em)
+                      
+                      
 @bot.command()
 async def timer(ctx, timer):
     """Counts down till it's over! Usage: *timer [time in secs]"""
