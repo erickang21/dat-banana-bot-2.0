@@ -115,7 +115,7 @@ async def hack(ctx, user: discord.Member):
     
       
 @bot.group(aliases=['animation', 'a'])
-async def anim(ctx):
+async def anim(ctx, Type):
     """Animations! Usage: *anim [type]. For a list, use *anim list."""
     if Type is None:
         await ctx.send('Probably a really cool animation, but we have not added them yet! But hang in there! You never know... For a current list, type *anim list')
@@ -140,7 +140,7 @@ async def anim(ctx):
           await msg.edit(content="```WOT DA FUK!```")
           await asyncio.sleep(1)
           await msg.edit(content="WOT DA FUK!")
-        if Type.lower() == 'mom':
+        elif Type.lower() == 'mom':
           msg = await ctx.send("```Y```")
           await asyncio.sleep(1)
           await msg.edit(content="```YO```")
