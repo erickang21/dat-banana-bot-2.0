@@ -27,17 +27,19 @@ def cleanup_code(content):
     
   
 @bot.event
-async def on_guild_join():
-    lol = bot.get_channel(390255995768799245)
-    em = discord.Embed(color=discord.Color(value=0x00ff00))
+async def on_guild_join(guild):
+    lol = bot.get_channel(392443319684300801)
+    em = discord.Embed(color=discord.Color(value=0xffff00))
     em.title = "dat banana bot has arrived in a new server!"
-    em.description = f"Server: {ctx.message.author.guild.name}"
+    em.description = f"Server: {guild}"
     await lol.send(embed=em)
 
 
 @bot.event
 async def on_ready():
    print('Bot is online!')
+   await bot.change_presence(game=discord.Game(name=f"with {len(bot.guilds)} servers! | *help | v 2.0.3"))
+
 
 def dev_check(id):
     with open('data/devs.json') as f:
