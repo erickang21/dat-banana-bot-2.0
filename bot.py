@@ -161,7 +161,8 @@ async def anim(ctx):
 @anim.command()
 async def list(ctx):
     color = discord.Color(value=0x00ff00)
-    em=discord.Embed(color=color, title="Current List of Awesome Animations:", description="wtf (*anim wtf), mom (*anim mom).")
+    em=discord.Embed(color=color, title="Current List of Awesome Animations:")
+    em.description = "wtf (*anim wtf), mom (*anim mom)."
     em.set_footer(text="We will always be adding new animations!")
     await ctx.send(embed=em)
                       
