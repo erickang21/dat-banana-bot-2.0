@@ -154,19 +154,16 @@ async def anim(ctx, Type):
           await msg.edit(content="```YO MOM!```")
           await asyncio.sleep(1)
           await msg.edit(content="YO MOM!")
+        elif Type.lower() == 'list':
+          color = discord.Color(value=0x00ff00)
+          em=discord.Embed(color=color, title="Current List of Awesome Animations:")
+          em.description = "wtf (*anim wtf), mom (*anim mom)."
+          em.set_footer(text="We will always be adding new animations!")
+          await ctx.send(embed=em)
         else:
           await ctx.send('Probably a really cool animation, but we have not added them yet! But hang in there! You never know... For a current list, type *anim list')              
         
-
-@anim.command()
-async def list(ctx):
-    color = discord.Color(value=0x00ff00)
-    em=discord.Embed(color=color, title="Current List of Awesome Animations:")
-    em.description = "wtf (*anim wtf), mom (*anim mom)."
-    em.set_footer(text="We will always be adding new animations!")
-    await ctx.send(embed=em)
-                      
-                      
+     
 @bot.command()
 async def timer(ctx, timer):
     """Counts down till it's over! Usage: *timer [time in secs]"""
