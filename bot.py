@@ -27,15 +27,6 @@ def cleanup_code(content):
     
   
 @bot.event
-async def on_guild_join(guild):
-    lol = bot.get_channel(392443319684300801)
-    em = discord.Embed(color=discord.Color(value=0xffff00))
-    em.title = "dat banana bot has arrived in a new server!"
-    em.description = f"Server: {guild}"
-    await lol.send(embed=em)
-
-
-@bot.event
 async def on_ready():
    print('Bot is online! Aye.')
    while True:
@@ -45,7 +36,16 @@ async def on_ready():
        await asyncio.sleep(10)
        await bot.change_presence(game=discord.Game(name="v2.0.4, BETA")
 
-                                  
+
+@bot.event
+async def on_guild_join(guild):
+    lol = bot.get_channel(392443319684300801)
+    em = discord.Embed(color=discord.Color(value=0xffff00))
+    em.title = "dat banana bot has arrived in a new server!"
+    em.description = f"Server: {guild}"
+    await lol.send(embed=em)
+
+                                 
 def dev_check(id):
     with open('data/devs.json') as f:
         devs = json.load(f)
