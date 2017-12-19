@@ -168,9 +168,9 @@ async def anim(ctx, Type):
           await asyncio.sleep(1)
           await msg.edit(content="```STOP! Get```")
           await asyncio.sleep(1)
-          await msg.edit(content="```STOP! Get s```"
+          await msg.edit(content="```STOP! Get s```")
           await asyncio.sleep(1)
-          await msg.edit(content="```STOP! Get so``` ")
+          await msg.edit(content="```STOP! Get so```")
           await asyncio.sleep(1)
           await msg.edit(content="```STOP! Get som```")
           await asyncio.sleep(1)
