@@ -40,9 +40,9 @@ async def on_ready():
    print('Bot is online!')
    while True:
        await bot.change_presence(game=discord.Game(name=f"with {len(bot.guilds)} servers!"))
-       await asyncio.sleep(5)
+       await asyncio.sleep(10)
        await bot.change_presence(game=discord.Game(name="using *help!")
-       await asyncio.sleep(5)
+       await asyncio.sleep(10)
        await bot.change_presence(game=discord.Game(name="in v2.0.4 BETA.")
                              
                              
@@ -159,10 +159,50 @@ async def anim(ctx, Type):
           await msg.edit(content="```YO MOM!```")
           await asyncio.sleep(1)
           await msg.edit(content="YO MOM!")
+        elif Type.lower() == 'gethelp':
+          msg = await ctx.send("```STOP!```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! G```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Ge```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Get```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Get s```"
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Get so``` ")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Get som```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Get some```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Get some HELP```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```STOP! Get some HELP!!!```")
+          await asyncio.sleep(1)
+          await msg.edit(content="STOP! Get some HELP!!!")
+        elif Type.lower() == 'sike':
+          msg = await ctx.send("```W```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```Wa```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```Wai```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```Wait```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```Wait.```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```Wait..```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```Wait...```")
+          await asyncio.sleep(1)
+          await msg.edit(content="```SIKE!```")
+          await asyncio.sleep(1)
+          await msg.edit(content="SIKE!")
         elif Type.lower() == 'list':
           color = discord.Color(value=0x00ff00)
           em=discord.Embed(color=color, title="Current List of Awesome Animations:")
-          em.description = "wtf (*anim wtf), mom (*anim mom)."
+          em.description = "wtf (*anim wtf), mom (*anim mom), gethelp (*anim gethelp), sike (*anim sike)."
           em.set_footer(text="We will always be adding new animations!")
           await ctx.send(embed=em)
         else:
@@ -181,7 +221,19 @@ async def timer(ctx, timer):
         await asyncio.sleep(float(timer))
         await ctx.send("TIME'S UP! :clock:")
 
-        
+                         
+@bot.command()
+async def bug(ctx, *, msg:str):
+    """Does this bot have a bug? Report it and we squash it."""
+    lol = bot.get_channel(373917178547929088)
+    color = discord.Color(value=0x00ff00)
+    em=discord.Embed(color=color, title="Bug reported!")
+    em.description = f"Bug: {msg}"
+    em.set_footer(text=f"Bug sent by {ctx.message.author.name}")                         
+    await lol.send(embed=em)                     
+    await ctx.send("Thanks for reporting that bug! :bug: We will get back to you ASAP.")                     
+ 
+                         
 @bot.command(aliases=['8ball'])
 async def eightball(ctx, *, message:str):
     """Really desperate? Ask the 8ball for advice. Only yes/no questions!"""
