@@ -34,8 +34,8 @@ async def on_ready():
         await asyncio.sleep(15)
         await bot.change_presence(game=discord.Game(name="using *help!"))
         await asyncio.sleep(15)
-        await bot.change_presence(game=discord.Game(name="in v2.0.4, BETA."))
-
+        await bot.change_presence(game=discord.Game(name="in v2.0.4, stable."))
+        await asyncio.sleep(15)
 
 @bot.event
 async def on_guild_join(guild):
