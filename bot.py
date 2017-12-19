@@ -31,9 +31,9 @@ async def on_ready():
     print('Bot is online, and ready to ROLL!')
     while True:
         await bot.change_presence(game=discord.Game(name=f"with {len(bot.guilds)} servers!"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         await bot.change_presence(game=discord.Game(name="using *help!"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         await bot.change_presence(game=discord.Game(name="in v2.0.4, BETA."))
 
 
