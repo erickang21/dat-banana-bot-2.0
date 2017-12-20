@@ -18,18 +18,7 @@ class utility:
     def __init__(self, bot):
        self.bot = bot
        
-           
-    @commands.command()
-    async def ping(self, ctx):
-        """Premium ping pong giving you a websocket latency."""
-        color = discord.Color(value=0x00ff00)
-        em = discord.Embed(color=color, title='PoIIIng! Your supersonic latency is:')
-        em.description = f"{bot.latency * 1000:.4f} ms"
-        em.set_footer(text="Psst...A heartbeat is 27 ms!")
-        await ctx.send(embed=em)
-        
-        
-    
+
     @commands.command()
     async def timer(self, ctx, timer):
         """Counts down till it's over! Usage: *timer [time in secs]"""
