@@ -5,7 +5,7 @@ import io
 from discord.ext import commands
 
 
-class mod:
+class Mod:
     def __init__(self, bot):
         self.bot = bot
         
@@ -77,4 +77,4 @@ class mod:
         
         
 def setup(bot): 
-    bot.add_cog(mod(bot))        
+    bot.add_cog(Mod(bot))        
