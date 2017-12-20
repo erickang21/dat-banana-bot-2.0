@@ -71,7 +71,7 @@ class Fun:
               await msg.edit(content="```YO MOM```")
               await asyncio.sleep(1)
               await msg.edit(content="```YO MOM!```")
-            await asyncio.sleep(1)
+              await asyncio.sleep(1)
               await msg.edit(content="YO MOM!")
             elif Type.lower() == 'gethelp':
               msg = await ctx.send("```STOP!```")
