@@ -6,6 +6,7 @@ import sys
 import time
 import datetime
 import asyncio
+import random
 import aiohttp
 import pip
 import random
@@ -83,7 +84,13 @@ async def ping(ctx):
     em.set_footer(text="Psst...A heartbeat is 27 ms!")
     await ctx.send(embed=em)
                        
-                       
+
+@bot.command()
+async def ranint(ctx, a, b):
+    """Usage: *ranint [least number][ greatest number]. RanDOM!
+    pass
+        
+        
 @bot.command()
 async def textface(ctx, Type):
     """Get that lenny, tableflip, or shrug face in here!"""
