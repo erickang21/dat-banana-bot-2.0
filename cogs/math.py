@@ -8,19 +8,6 @@ from discord.ext import commands
 class math:
     def __init__(self, bot):
        self.bot = bot
-    
-    
-    @commands.command(aliases=['calculate', 'math'])
-    async def calc(self, ctx, num: int, num2: int):
-            '''Do those 4 simple operations with this bad boi.'''
-            if num is None:
-                await ctx.send("This command is currently under maintenace. Sorry bout that.")
-            else:
-                await ctx.send("This command is currently under maintenace. Sorry bout that.")
-                await ctx.add_reaction("\U00002795")
-                await ctx.add_reaction("\U00002796")
-                await ctx.add_reaction("\U00002716")
-                await ctx.add_reaction("\U00002797")
                 
                 
     @commands.command()
