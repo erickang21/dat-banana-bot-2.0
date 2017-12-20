@@ -98,6 +98,7 @@ async def ranint(ctx, a: int, b: int):
         em.description = random.randint(a,b)
         em.add_field(name='__Least Number__', value=a)
         em.add_field(name='__Greatest Number__', value=b)
+        await ctx.send(embed=em)
         
         
 @bot.command()
