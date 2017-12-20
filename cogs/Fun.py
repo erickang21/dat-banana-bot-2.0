@@ -71,7 +71,7 @@ class Fun:
               await msg.edit(content="```YO MOM```")
               await asyncio.sleep(1)
               await msg.edit(content="```YO MOM!```")
-              await asyncio.sleep(1)
+            await asyncio.sleep(1)
               await msg.edit(content="YO MOM!")
             elif Type.lower() == 'gethelp':
               msg = await ctx.send("```STOP!```")
@@ -132,6 +132,18 @@ class Fun:
             else:
               await ctx.send('Probably a really cool animation, but we have not added them yet! But hang in there! You never know... For a current list, type *anim list')             
               
-              
+   
+    @commands.command(aliases=['8ball'])
+    async def eightball(self, ctx, *, message:str):
+        """Really desperate? Ask the 8ball for advice. Only yes/no questions!"""
+        choices = ['It is certain. :white_check_mark:', 'It is decidedly so. :white_check_mark:', 'Without a doubt. :white_check_mark:', 'Yes, definitely. :white_check_mark:', 'You may rely on it. :white_check_mark:', 'As I see it, yes. :white_check_mark:', 'Most likely. :white_check_mark:', ' Outlook good. :white_check_mark:', 'Yes. :white_check_mark:', 'Signs point to yes. :white_check_mark:', 'Reply hazy, try again. :large_orange_diamond: ', 'Ask again later. :large_orange_diamond: ', 'Better not tell you now. :large_orange_diamond: ', 'Cannot predict now. :large_orange_diamond: ', 'Concentrate and ask again. :large_orange_diamond: ', 'Do not count on it. :x:', 'My reply is no. :x:', 'My sources say no. :x:', 'Outlook not so good. :x:', 'Very doubtful. :x:']
+        color = discord.Color(value=0xeaff29)
+        em=discord.Embed(color=color, title=f"{message}", description=random.choice(choices))
+        em.set_author(name="The Mighty 8 ball", icon_url="https://vignette.wikia.nocookie.net/battlefordreamislandfanfiction/images/5/53/8-ball_my_friend.png/revision/latest?cb=20161109021012")
+        em.set_footer(text=f"Sent by {ctx.message.author.name}")
+        await ctx.message.delete()
+        await ctx.send(embed=em)
+
+    
 def setup(bot): 
     bot.add_cog(Fun(bot))   
