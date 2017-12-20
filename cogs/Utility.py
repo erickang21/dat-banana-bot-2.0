@@ -25,14 +25,14 @@ class Utility:
     @commands.command()
     async def timer(self, ctx, timer):
         """Counts down till it's over! Usage: *timer [time in secs]"""
-    try:
-        float(timer)
-    except ValueError:
-        await ctx.send("UH OH! Timer did not start. Usage: *timer [time in secs]. Make sure the time is a *whole number*.")
-    else:
-        await ctx.send("Timer started and rolling! :timer:")
-        await asyncio.sleep(float(timer))
-        await ctx.send("TIME'S UP! :clock:")
+        try:
+            float(timer)
+        except ValueError:
+            await ctx.send("UH OH! Timer did not start. Usage: *timer [time in secs]. Make sure the time is a *whole number*.")
+        else:
+            await ctx.send("Timer started and rolling! :timer:")
+            await asyncio.sleep(float(timer))
+            await ctx.send("TIME'S UP! :clock:")
         
         
     @commands.command()
