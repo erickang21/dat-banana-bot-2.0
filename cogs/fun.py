@@ -115,7 +115,7 @@ class fun:
               await msg.edit(content="SIKE!")
             elif Type.lower() == 'gitgud':
               msg = await ctx.send("```G```")
-              await asyncio.sleep(1)
+            await asyncio.sleep(1)
               await msg.edit(content="```Gi```")
               await asyncio.sleep(1)
               await msg.edit(content="```Git```")
@@ -194,6 +194,16 @@ class fun:
         await ctx.message.delete()
         await ctx.send(embed=em)
 
+    
+    @commands.command()
+    async def annoy(self, ctx, user: discord.Member, times: int):
+        """Annoy! GR... Usage: *annoy [user] [no. of times]."""
+        await ctx.send("Please be advised. This command will limit itself to 1 msg/second to avoid heavy ratelimits, which stops sending messages if the msg/sec is too high. This bot may still get ratelimited, i.e. slow down or stop for a while, please be patient. The annoy will start 3 secs after this msg is sent.")
+        await asyncio.sleep(3)
+        for x in range(times):
+            await ctx.send(user)
+            asyncio.sleep(1)
+       
     
 def setup(bot): 
     bot.add_cog(fun(bot))   
