@@ -115,7 +115,7 @@ class fun:
               await msg.edit(content="SIKE!")
             elif Type.lower() == 'gitgud':
               msg = await ctx.send("```G```")
-            await asyncio.sleep(1)
+              await asyncio.sleep(1)
               await msg.edit(content="```Gi```")
               await asyncio.sleep(1)
               await msg.edit(content="```Git```")
