@@ -15,8 +15,8 @@ from contextlib import redirect_stdout
 from discord.ext import commands
 import json
 bot = commands.Bot(command_prefix='*',description="The revamped dat banana bot made by dat banana boi#1982.\n\nHelp Commands",owner_id=277981712989028353)
-bot.load_extension("cogs.math")
-bot.load_extension("cogs.mod")
+bot.load_extension("cogs.Math")
+bot.load_extension("cogs.Mod")
 
 
 def cleanup_code(content):
@@ -35,7 +35,7 @@ async def on_ready():
         await asyncio.sleep(15)
         await bot.change_presence(game=discord.Game(name="using *help!"))
         await asyncio.sleep(15)
-        await bot.change_presence(game=discord.Game(name="in v2.0.4, stable."))
+        await bot.change_presence(game=discord.Game(name="in v3.0.0, beta."))
         await asyncio.sleep(15)
 
 @bot.event
