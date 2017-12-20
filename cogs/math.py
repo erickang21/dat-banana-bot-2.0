@@ -32,7 +32,25 @@ class math:
                     em = discord.Embed(color=color, title: 'Calculation finished!')
                     em.description = f"{num} + {num2}   =   {num + num2}"
                     await ctx.send(embed=em)                           
-                                               
+                if str(reaction.emoji) == ':heavy_minus_sign:'
+                    await msg.delete()
+                    color = discord.Color(value=0x00ff00)
+                    em = discord.Embed(color=color, title: 'Calculation finished!')
+                    em.description = f"{num} - {num2}   =   {num - num2}"
+                    await ctx.send(embed=em)   
+                if str(reaction.emoji) == ':heavy_multiplication_x:'
+                    await msg.delete()
+                    color = discord.Color(value=0x00ff00)
+                    em = discord.Embed(color=color, title: 'Calculation finished!')
+                    em.description = f"{num} x {num2}   =   {num * num2}"
+                    await ctx.send(embed=em)                              
+                if str(reaction.emoji) == 'heavy_division_sign:'
+                    await msg.delete()
+                    color = discord.Color(value=0x00ff00)
+                    em = discord.Embed(color=color, title: 'Calculation finished!')
+                    em.description = f"{num} / {num2}   =   {num / num2}"
+                    await ctx.send(embed=em)                              
+ 
                                                
     @commands.command()
     async def add(self, ctx, num: int, num2: int):
