@@ -6,7 +6,7 @@ import asyncio
 from discord.ext import commands
 
 
-class Fun:
+class fun:
     def __init__(self, bot):
        self.bot = bot
        
@@ -196,4 +196,4 @@ class Fun:
 
     
 def setup(bot): 
-    bot.add_cog(Fun(bot))   
+    bot.add_cog(fun(bot))   
