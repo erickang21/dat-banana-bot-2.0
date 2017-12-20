@@ -86,9 +86,18 @@ async def ping(ctx):
                        
 
 @bot.command()
-async def ranint(ctx, a, b):
-    """Usage: *ranint [least number][ greatest number]. RanDOM!
-    pass
+async def ranint(ctx, a: int, b: int):
+    """Usage: *ranint [least number][greatest number]. RanDOM!"""
+    if a is None:
+        await ctx.send("Boi, are you random! Usage: *ranint [least #] [greatest #], to set the range of the randomized number. Please use integers.")
+    if b is None:
+        await ctx.send("Boi, are you random! Usage: *ranint [least #] [greatest #], to set the range of the randomized number. Please use integers.")
+    else:
+        color = discord.Color(value=0x00ff00)
+        em = discord.Embed(color=color, title='Your randomized number:')
+        em.description = random.randint(a,b)
+        em.add_field(name='__Least Number__', value=a)
+        em.add_field(name='__Greatest Number__', value=b)
         
         
 @bot.command()
@@ -290,7 +299,7 @@ async def rolldice(ctx):
 async def restart(ctx):
     """Makes the bot shut UP and then shut DOWN, then start up again."""
     if not dev_check(ctx.author.id):
-        return
+        await ctx.send("HALT! This command is for the devs only. Sorry. :x:")
     
     msg = await ctx.send("Shutting down...")
     await asyncio.sleep(2)
