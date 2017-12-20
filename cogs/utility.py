@@ -1,8 +1,16 @@
 import discord
-import sys
 import os
 import io
+import traceback
+import sys
+import time
+import datetime
 import asyncio
+import random
+import aiohttp
+import pip
+import random
+import textwrap
 from discord.ext import commands
 
 
@@ -46,8 +54,6 @@ class utility:
             color = discord.Color(value=0x00ff00)
             em = discord.Embed(color=color, title='Your randomized number:')
             em.description = random.randint(a,b)
-            em.add_field(name='__Least Number__', value=a)
-            em.add_field(name='__Greatest Number__', value=b)
             await ctx.send(embed=em)
             
                     
