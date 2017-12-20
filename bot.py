@@ -97,6 +97,16 @@ async def say(ctx, *, message:str):
                        
 
 @bot.command()
+async def ping(ctx):
+    """Premium ping pong giving you a websocket latency."""
+    color = discord.Color(value=0x00ff00)
+    em = discord.Embed(color=color, title='PoIIIng! Your supersonic latency is:')
+    em.description = f"{bot.latency * 1000:.4f} ms"
+    em.set_footer(text="Psst...A heartbeat is 27 ms!")
+    await ctx.send(embed=em)        
+        
+        
+@bot.command()
 async def invite(ctx):
     """Allow my bot to join the hood. YOUR hood."""
     await ctx.send("Lemme join that hood -> https://discordapp.com/oauth2/authorize?client_id=388476336777461770&scope=bot&permissions=2146958591")                       
