@@ -15,10 +15,10 @@ from contextlib import redirect_stdout
 from discord.ext import commands
 import json
 bot = commands.Bot(command_prefix='*',description="The revamped dat banana bot made by dat banana boi#1982.\n\nHelp Commands",owner_id=277981712989028353)
-bot.load_extension("cogs.Math")
-bot.load_extension("cogs.Mod")
-bot.load_extension("cogs.Utility")
-bot.load_extension("cogs.Fun")
+bot.load_extension("cogs.math")
+bot.load_extension("cogs.mod")
+bot.load_extension("cogs.utility")
+bot.load_extension("cogs.fun")
 
 
 def cleanup_code(content):
