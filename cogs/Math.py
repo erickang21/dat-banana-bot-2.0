@@ -24,7 +24,7 @@ class Math:
             await msg.add_reaction(':heavy_division_sign:')
             
             def pred(reaction, user):
-                return user == ctx.author and (str(reaction.emoji) == ':heavy_plus_sign:' or str(reaction.emoji) == ':heavy_minus_sign:' or str(reaction.emoji) == ':heavy_multiplication_x:' or str(reaction.emoji) == ':heavy_division_sign:)
+                return user == ctx.author and str(reaction.emoji) == ':heavy_plus_sign:' or str(reaction.emoji) == ':heavy_minus_sign:' or str(reaction.emoji) == ':heavy_multiplication_x:' or str(reaction.emoji) == ':heavy_division_sign:)
     
             else:
                 if str(reaction.emoji) == ':heavy_plus_sign:':                                   
