@@ -24,7 +24,7 @@ class Utility:
     
     @commands.command()
     async def timer(self, ctx, timer):
-    """Counts down till it's over! Usage: *timer [time in secs]"""
+        """Counts down till it's over! Usage: *timer [time in secs]"""
     try:
         float(timer)
     except ValueError:
