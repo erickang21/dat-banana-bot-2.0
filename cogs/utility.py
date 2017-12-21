@@ -73,12 +73,10 @@ class utility:
               await ctx.send('ლ(´ڡ`ლ)')
             elif Type.lower() == 'musicdude':
               await ctx.send('ヾ⌐*_*ノ♪')
-            elif Type.lower() == 'gundude':
-              await ctx.send('̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= * ͜͞ʖ* =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ ')
             elif Type.lower() == 'list':
               color = discord.Color(value=0x00ff00)
               em = discord.Embed(color=color, title='List of Textfaces')
-              em.description = 'Choose from the following: lenny, tableflip, shrug, bignose, iwant, musicdude, gundude. Type *textface [face].'
+              em.description = 'Choose from the following: lenny, tableflip, shrug, bignose, iwant, musicdude. Type *textface [face].'
               em.set_footer(text="Don't you dare question my names for the textfaces.")
               await ctx.send(embed=em)
             else:
