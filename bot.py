@@ -49,7 +49,12 @@ async def on_guild_join(guild):
     em.description = f"Server: {guild}"
     await lol.send(embed=em)
 
-                                 
+    
+@bot.event
+async def when_mentioned():
+    await ctx.send("BAH! Couldn't find enough people to ping, could you? Anyway, I'm dat banana bot, made by dat banana boi#1982. Type *help to see what I can do for you today.")   
+            
+        
 def dev_check(id):
     with open('data/devs.json') as f:
         devs = json.load(f)
