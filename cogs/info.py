@@ -20,7 +20,6 @@ class info:
         em.set_thumbnail(url="https://imgur.com/a/XyLor")
         em.add_field(name='Creator', value='dat banana boi#1982')
         em.add_field(name='Devs', value='Free TNT#5796, 4JR#2713')
-        em.add_field(name='Ping', value=f'{bot.latency * 1000:.4f} ms')
         em.add_field(name='Number of Servers', value=f'{len(bot.guilds)} servers') 
         em.add_field(name='Version', value='v3.0.1')
         em.add_field(name='Start Date', value='12/08/2017')
