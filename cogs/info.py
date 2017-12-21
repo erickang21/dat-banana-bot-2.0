@@ -27,8 +27,7 @@ class info:
         em.add_field(name='Bot Region', value='North America')
         em.add_field(name='Code Platform', value='GitHub')
         em.add_field(name='Hosting Platform', value='Heroku')
-        em.add_field(name='Coding Language', value='Python (discord.py)'
-        em.set_footer(text='Multipurpose, fun bot, to make Discord fun.')        
+        em.add_field(name='Coding Language', value='Python (discord.py)'      
         await ctx.send(embed=em)
         
         
