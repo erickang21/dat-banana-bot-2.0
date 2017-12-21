@@ -55,20 +55,48 @@ class utility:
         await ctx.send(embed=em)
         
         
-    @commands.command()
+    @commands.command(aliases=['txtface', 'textfaces', 'tf'])
     async def textface(self, ctx, Type):
-        """Get that lenny, tableflip, or shrug face in here!"""
+        """Get those dank/cool faces here. Type *textface list for a list."""
         if Type is None:
             await ctx.send('That is NOT one of the dank textfaces in here yet. Use: *textface [lenny/tableflip/shrug]')
         else:
             if Type.lower() == 'lenny':
-              await ctx.send('( ° ʖ °)')
+              await ctx.send('( ͡° ͜ʖ ͡°)')
             elif Type.lower() == 'tableflip':
               await ctx.send('(ノಠ益ಠ)ノ彡┻━┻')
             elif Type.lower() == 'shrug':
               await ctx.send('¯\_(ツ)_/¯')
+            elif Type.lower() == 'bignose':
+              await ctx.send('(͡ ͡° ͜ つ ͡͡°)')
+            elif Type.lower() == 'spider':
+              await ctx.send('/╲/\╭( ͡° ͡° ͜ʖ ͡° ͡°)╮/\╱\')
+            elif Type.lower() == 'iwant':
+              await ctx.send('ლ(´ڡ`ლ)')
+            elif Type.lower() == 'musicdude':
+              await ctx.send('ヾ(⌐■_■)ノ♪')
+            elif Type.lower() == 'gundude':
+              await ctx.send('̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿')
+            elif Type.lower() == 'list':
+              color = discord.Color(value=0x00ff00)
+              em = discord.Embed(color=color, title='List of Textfaces')
+              em.description = 'Choose from the following: lenny, tableflip, shrug, bignose, spider, iwant, musicdude, gundude. Type *textface [face].'
+              em.set_footer(text="Don't you dare question my names for the textfaces.")
+              await ctx.send(embed=em)
             else:
-              await ctx.send('That is NOT one of the dank textfaces in here yet. Use: *textface [lenny/tableflip/shrug]')
+              await ctx.send('That is NOT one of the dank textfaces in here yet. Use *textface list to see a list of the textfaces.')
+            
+            
+    @commands.command(aliases=['av'])
+    async def avatar(self, ctx, user: discord.Member):
+        """Returns a user's avatar url. Use *av [user], or just *av for your own."""
+        if user is None:
+            await ctx.send(ctx.message.author.avatar_url)
+        elif user != discord.Member:
+            await ctx.send("If you want to steal a profile pic, please ping that user. Usage: *av @[user], or just *av for your own profile pic.")                     
+        else:
+            await ctx.send(user.avatar_url)
+        
               
               
 def setup(bot): 
