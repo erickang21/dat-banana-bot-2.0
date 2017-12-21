@@ -55,7 +55,7 @@ class utility:
         await ctx.send(embed=em)
         
         
-    @commands.command(aliases=['txtface', 'textfaces', 'tf'])
+    @commands.command(aliases=['tf'])
     async def textface(self, ctx, Type):
         """Get those dank/cool faces here. Type *textface list for a list."""
         if Type is None:
