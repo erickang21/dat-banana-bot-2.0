@@ -18,7 +18,7 @@ class info:
         em = discord.Embed(color=color, title='Bot Stats')
         em.description = "These are some stats for the lovely dat banana bot#0170."
         em.set_thumbnail(url="https://imgur.com/a/XyLor")
-        em.add_field(name='Creator', value='dat banana boi#1982)
+        em.add_field(name='Creator', value='dat banana boi#1982')
         em.add_field(name='Devs', value='Free TNT#5796, 4JR#2713')
         em.add_field(name='Ping', value=f'{bot.latency * 1000:.4f} ms')
         em.add_field(name='Number of Servers', value=f'{len(bot.guilds)} servers') 
