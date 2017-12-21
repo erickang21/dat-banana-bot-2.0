@@ -70,13 +70,13 @@ class utility:
             elif Type.lower() == 'bignose':
               await ctx.send('(͡ ͡° ͜ つ ͡͡°)')
             elif Type.lower() == 'spider':
-              await ctx.send('/╲/\╭( ͡° ͡° ͜ʖ ͡° ͡°)╮/\╱\')
+              await ctx.send("/╲/\╭( ͡° ͡° ͜ʖ ͡° ͡°)╮/\╱\")
             elif Type.lower() == 'iwant':
               await ctx.send('ლ(´ڡ`ლ)')
             elif Type.lower() == 'musicdude':
               await ctx.send('ヾ(⌐■_■)ノ♪')
             elif Type.lower() == 'gundude':
-              await ctx.send('̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿')
+              await ctx.send('̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ ')
             elif Type.lower() == 'list':
               color = discord.Color(value=0x00ff00)
               em = discord.Embed(color=color, title='List of Textfaces')
