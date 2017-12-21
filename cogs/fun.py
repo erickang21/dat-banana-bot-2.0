@@ -3,6 +3,8 @@ import sys
 import os
 import io
 import asyncio
+import aiohttp
+import random
 from discord.ext import commands
 
 
