@@ -17,10 +17,11 @@ class info:
         color = discord.Color(value=0x00ff00)
         em = discord.Embed(color=color, title='Bot Stats')
         em.description = "These are some stats for the lovely dat banana bot#0170."
-        em.set_thumbnail(url="https://imgur.com/a/XyLor")
+        em.set_thumbnail(url="https://imgur.com/a/XyLor")        
         em.add_field(name='Creator', value='dat banana boi#1982')
         em.add_field(name='Devs', value='Free TNT#5796, 4JR#2713')
         em.add_field(name='Number of Servers', value=f'{len(self.bot.guilds)} servers') 
+        em.add_field(name-'Latency', value=f'{bot.latency * 1000:.4f} ms')
         em.add_field(name='Version', value='v3.0.1')
         em.add_field(name='Start Date', value='12/08/2017')
         em.add_field(name='Bot Region', value='North America')
