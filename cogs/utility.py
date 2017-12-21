@@ -69,8 +69,6 @@ class utility:
               await ctx.send('¯\_(ツ)_/¯')
             elif Type.lower() == 'bignose':
               await ctx.send('(͡ ͡° ͜ つ ͡͡°)')
-            elif Type.lower() == 'spider':
-              await ctx.send("/╲/\╭( ͡° ͡° ͜ʖ ͡° ͡°)╮/\╱\")
             elif Type.lower() == 'iwant':
               await ctx.send('ლ(´ڡ`ლ)')
             elif Type.lower() == 'musicdude':
