@@ -33,7 +33,19 @@ class mod:
             await ctx.send("User has been DM'd :white_check_mark:. Pray that the user is a gud boi now. :pray:")
         except:
             await ctx.send("Something happened and the DM could not make it :x:. The user could be blocking DMs from the server, or you did not use the format correctly. Usage: *warn [tag person] [reason].")    
-             
+       
+    @commands.command()
+    @commands.has_permissions(manage_messages = True)
+    async def purge(self, ctx, num: int):
+        """Deletes a # of msgs. *purge [# of msgs]. Manage msgs perm. required."""
+        try:
+             await ctx.channel.purge(limit=num)
+             msg = await ctx.send("Purged successfully :white_check_mark:")
+             await asyncio.sleep(5)
+             await msg.delete()
+         except:
+             await ctx.send("That must be an invalid number. Or you don't have permission. Or I don't have permission.")
+    
     
     @commands.command()
     @commands.has_permissions(kick_members = True)
