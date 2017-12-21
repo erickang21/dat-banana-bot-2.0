@@ -172,11 +172,27 @@ class fun:
               await asyncio.sleep(1)
               await msg.edit(content=":clock1130:")
               await asyncio.sleep(1)
-              await msg.edit(content=":clock12:")                   
+              await msg.edit(content=":clock12:")
+            elif Type.lower() == 'mate':
+              msg = await ctx.send("```Y```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Ye```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Ye W```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Ye WO```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Ye WOT```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Ye WOT M8```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Ye WOT M8?!?!?!")
+              await asyncio.sleep(1)
+              await msg.edit(content="Ye WOT M8?!?!?!")             
             elif Type.lower() == 'list':
               color = discord.Color(value=0x00ff00)
               em=discord.Embed(color=color, title="Current List of Awesome Animations:")
-              em.description = "wtf (anim wtf), mom (anim mom), gethelp (anim gethelp), sike (anim sike), gitgud (anim gitgud), clock (anim clock)."
+              em.description = "wtf (anim wtf), mom (anim mom), gethelp (anim gethelp), sike (anim sike), gitgud (anim gitgud), clock (anim clock), mate (anim mate)."
               em.set_footer(text="We will always be adding new animations!")
               await ctx.send(embed=em)
             else:
