@@ -43,7 +43,7 @@ class mod:
              msg = await ctx.send("Purged successfully :white_check_mark:")
              await asyncio.sleep(5)
              await msg.delete()
-         except:
+        except:
              await ctx.send("That must be an invalid number. Or you don't have permission. Or I don't have permission.")
     
     
