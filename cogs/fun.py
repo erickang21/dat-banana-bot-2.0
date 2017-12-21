@@ -127,7 +127,7 @@ class fun:
               msg = await ctx.send(":clock12:")
               await asyncio.sleep(1)
               await msg.edit(content=":clock1230:") 
-            await asyncio.sleep(1)
+              await asyncio.sleep(1)
               await msg.edit(content=":clock1:")
               await asyncio.sleep(1)
               await msg.edit(content=":clock130:")
