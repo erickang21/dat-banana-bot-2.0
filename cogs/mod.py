@@ -38,12 +38,12 @@ class mod:
     @commands.has_permissions(manage_messages = True)
     async def purge(self, ctx, num: int):
         """Deletes a # of msgs. *purge [# of msgs]. Manage msgs perm. required."""
-        try:
+        if num = int:
              await ctx.channel.purge(limit=num)
              msg = await ctx.send("Purged successfully :white_check_mark:")
              await asyncio.sleep(5)
              await msg.delete()
-        if num != int:
+        elif num != int:
              await ctx.send("That must be an invalid number.")
     
     
