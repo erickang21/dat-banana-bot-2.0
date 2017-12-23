@@ -87,9 +87,7 @@ class utility:
     async def avatar(self, ctx, user: discord.Member):
         """Returns a user's avatar url. Use *av [user], or just *av for your own."""
         if user is None:
-            await ctx.send(ctx.message.author.avatar_url)
-        elif user != discord.Member:
-            await ctx.send("If you want to steal a profile pic, please ping that user. Usage: *av @[user], or just *av for your own profile pic.")                     
+            await ctx.send(ctx.message.author.avatar_url)                   
         else:
             await ctx.send(user.avatar_url)
         
