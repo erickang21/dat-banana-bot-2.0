@@ -48,6 +48,7 @@ async def on_guild_join(guild):
     em.title = "dat banana bot has arrived in a new server!"
     em.description = f"Server: {guild}"
     await lol.send(embed=em)
+    await ctx.send(f"Hiya, guys in **{guild.name}**! Thanks for welcoming me! I am dat banana bot, a gud Discord bot. Try me out by typing *help!")
 
     
 @bot.event
@@ -129,15 +130,16 @@ async def restart(ctx):
     """Makes the bot shut UP and then shut DOWN, then start up again."""
     if not dev_check(ctx.author.id):
         await ctx.send("HALT! This command is for the devs only. Sorry. :x:")
+        return
     
     msg = await ctx.send("Shutting down...")
-    await asyncio.sleep(2)
+    await asyncio.sleep(1)
     await msg.edit(content="Shutting down... [▓▓    ]") 
-    await asyncio.sleep(2)
+    await asyncio.sleep(1)
     await msg.edit(content="Shutting down... [▓▓▓▓  ]")
-    await asyncio.sleep(2)
+    await asyncio.sleep(1)
     await msg.edit(content="Shutting down... [▓▓▓▓▓▓]")
-    await asyncio.sleep(3)
+    await asyncio.sleep(1)
     await msg.edit(content="Goodbye! :wave:")
     await bot.logout()
 
