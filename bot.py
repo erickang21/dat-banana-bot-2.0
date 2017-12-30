@@ -20,6 +20,7 @@ bot.load_extension("cogs.mod")
 bot.load_extension("cogs.utility")
 bot.load_extension("cogs.fun")
 bot.load_extension("cogs.info")
+bot.load_extension("cogs.developer")
 
 
 def cleanup_code(content):
@@ -123,25 +124,6 @@ async def invite(ctx):
 async def _discord(ctx):
     """We have an awesome hood to join, join now!"""
     await ctx.send("Your turn to join the hood -> https://discord.gg/wvkVknA")
-
-    
-@bot.command()
-async def restart(ctx):
-    """Makes the bot shut UP and then shut DOWN, then start up again."""
-    if not dev_check(ctx.author.id):
-        await ctx.send("HALT! This command is for the devs only. Sorry. :x:")
-        return
-    
-    msg = await ctx.send("Shutting down...")
-    await asyncio.sleep(1)
-    await msg.edit(content="Shutting down... [▓▓    ]") 
-    await asyncio.sleep(1)
-    await msg.edit(content="Shutting down... [▓▓▓▓  ]")
-    await asyncio.sleep(1)
-    await msg.edit(content="Shutting down... [▓▓▓▓▓▓]")
-    await asyncio.sleep(1)
-    await msg.edit(content="Goodbye! :wave:")
-    await bot.logout()
 
                       
 @bot.command(hidden=True, name='eval')
