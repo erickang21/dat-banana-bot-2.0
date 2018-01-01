@@ -97,8 +97,20 @@ class utility:
         """Dig out that user info. Usage: *userinfo [tag user]"""
         if user is None:
             color = discord.Color(value=0xf2f760)
-            em = discord.Embed(color=color, title='User Info')
-            
+            em = discord.Embed(color=color, title=f'User Info: {ctx.message.author.name}')
+            em.add_field(name='Status', value=f'{ctx.message.author.status}')       
+            em.add_field(name='Account Created', value=ctx.message.author.created_at.__format__('%A, %B %d, %Y'))
+            em.add_field(name='ID', value=f'{ctx.message.author.id}')
+            em.set_thumbnail(url=ctx.message.author.avatar_url)
+            return await ctx.send(embed=em)
+        else:
+            color = discord.Color(value=0xf2f760)
+            em = discord.Embed(color=color, title=f'User Info: {user.name}')
+            em.add_field(name='Status', value=f'{user.status}')       
+            em.add_field(name='Account Created', value=user.created_at.__format__('%A, %B %d, %Y'))
+            em.add_field(name='ID', value=f'{user.id}')
+            em.set_thumbnail(url=user.avatar_url)
+            await ctx.send(embed=em)    
         
               
               
