@@ -27,7 +27,7 @@ class developer:
         
         
     @commands.command()
-    async def changename(self, ctx, name:str)
+    async def changename(self, ctx, name:str):
         """Changes my name. Please make it good!"""
         if not dev_check(ctx.author.id):
             return await ctx.send("HALT! This command is for the devs only. Sorry. :x:")
