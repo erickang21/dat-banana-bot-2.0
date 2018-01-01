@@ -90,6 +90,15 @@ class utility:
             await ctx.send(ctx.message.author.avatar_url)                   
         else:
             await ctx.send(user.avatar_url)
+            
+            
+    @commands.command()
+    async def userinfo(self, ctx, user: discord.Member):
+        """Dig out that user info. Usage: *userinfo [tag user]"""
+        if user is None:
+            color = discord.Color(value=0xf2f760)
+            em = discord.Embed(color=color, title='User Info')
+            
         
               
               
