@@ -25,4 +25,5 @@ class clashroyale:
         em.add_field(name='Arena', value=profile.arena.name)
         em.add_field(name='Wins/Losses/Draws', value=record)
         em.add_field(name='Win Rate', value=f"{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%")
+        await ctx.send(embed=em)
         
