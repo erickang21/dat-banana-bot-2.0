@@ -73,10 +73,18 @@ class utility:
               await ctx.send('ლ(´ڡ`ლ)')
             elif Type.lower() == 'musicdude':
               await ctx.send('ヾ⌐*_*ノ♪')
+            elif Type.lower() == 'wot':
+              await ctx.send('ლ,ᔑ•ﺪ͟͠•ᔐ.ლ')
+            elif Type.lower() == 'bomb':
+              await ctx.send('(´・ω・)っ由')
+            elif Type.lower() == 'orlly':
+              await ctx.send("﴾͡๏̯͡๏﴿ O'RLY?")
+            elif Type.lower() == 'money':
+              await ctx.send('[̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]')
             elif Type.lower() == 'list':
               color = discord.Color(value=0x00ff00)
               em = discord.Embed(color=color, title='List of Textfaces')
-              em.description = 'Choose from the following: lenny, tableflip, shrug, bignose, iwant, musicdude. Type *textface [face].'
+              em.description = 'Choose from the following: lenny, tableflip, shrug, bignose, iwant, musicdude, wot, bomb, orlly, money.   b    Type *textface [face].'
               em.set_footer(text="Don't you dare question my names for the textfaces.")
               await ctx.send(embed=em)
             else:
@@ -102,7 +110,7 @@ class utility:
             em.add_field(name='Account Created', value=ctx.message.author.created_at.__format__('%A, %B %d, %Y'))
             em.add_field(name='ID', value=f'{ctx.message.author.id}')
             em.set_thumbnail(url=ctx.message.author.avatar_url)
-            return await ctx.send(embed=em)
+            await ctx.send(embed=em)
         else:
             color = discord.Color(value=0xf2f760)
             em = discord.Embed(color=color, title=f'User Info: {user.name}')
