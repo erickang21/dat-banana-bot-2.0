@@ -27,3 +27,6 @@ class clashroyale:
         em.add_field(name='Win Rate', value=f"{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%")
         await ctx.send(embed=em)
         
+
+def setup(bot): 
+    bot.add_cog(clashroyale(bot)) 
