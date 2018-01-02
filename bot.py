@@ -21,6 +21,7 @@ bot.load_extension("cogs.utility")
 bot.load_extension("cogs.fun")
 bot.load_extension("cogs.info")
 bot.load_extension("cogs.developer")
+bot.load_extension("cogs.clashroyale")
 
 
 def cleanup_code(content):
