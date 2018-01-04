@@ -6,7 +6,7 @@ import clashroyale
 from discord.ext import commands
 
 
-class CR:
+class cr:
     def __init__(self, bot):
         self.bot = bot
         self.client = clashroyale.Client("607d4e53a8b643f1bbb7837bacb7ec3c4706bc9420b34377a869d8048500f998", is_async=True)
@@ -29,4 +29,4 @@ class CR:
         
 
 def setup(bot): 
-    bot.add_cog(CR(bot)) 
+    bot.add_cog(cr(bot)) 
