@@ -9,13 +9,13 @@ from discord.ext import commands
 class clashroyale:
     def __init__(self, bot):
         self.bot = bot
+        self.client = clashroyale.Client("607d4e53a8b643f1bbb7837bacb7ec3c4706bc9420b34377a869d8048500f998", is_async=True)
         
 
     @commands.command()
     async def crprofile(self, ctx, crtag:str):
         """Shows CR stats for you! Usage: *crprofile [tag]"""
-        client = clashroyale.Client("607d4e53a8b643f1bbb7837bacb7ec3c4706bc9420b34377a869d8048500f998", is_async=True)   
-        profile = await client.get_player(crtag)
+        profile = await self.client.get_player(crtag)
         color = discord.Color(value=0xf1f442)
         em = discord.Embed(color=color, title=f'{profile.name}')
         em.description = f'#{profile.tag}' 
