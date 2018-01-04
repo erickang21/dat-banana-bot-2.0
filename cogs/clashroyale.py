@@ -10,10 +10,7 @@ class clashroyale:
     def __init__(self, bot):
         self.bot = bot
         
-        
-     
-        
-        
+
     @commands.command()
     async def crprofile(self, ctx, crtag:str):
         """Shows CR stats for you! Usage: *crprofile [tag]"""
@@ -26,7 +23,7 @@ class clashroyale:
         em.add_field(name='Personal Best', value=f'{profile.stats.max_trophies}')
         em.add_field(name='XP Level', value=f'{profile.stats.level}')
         em.add_field(name='Arena', value=f'{profile.arena.name}')
-        em.add_field(name='Wins/Losses/Draws', value=f'{record}')
+        em.add_field(name='Wins/Losses/Draws', value=f'{profile.games.wins}/{profile.games.draws}/{profile.games.losses}')
         em.add_field(name='Win Rate', value=f'{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%')
         await ctx.send(embed=em)
         
