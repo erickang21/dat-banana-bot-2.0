@@ -61,7 +61,7 @@ class cr:
             profile = await self.client.get_player(crtag)
             color = discord.Color(value=0xf1f442)
             em = discord.Embed(color=color)
-            em.add_field(name='Challenge Max Wins'), value=f'{profile.stats.challenge_max_wins}')
+            em.add_field(name='Challenge Max Wins', value=f'{profile.stats.challenge_max_wins}')
             em.add_field(name='Challenge Cards Won', value=f'{profile.stats.challenge_cards_won}')
             em.add_field(name='Tourney Cards Won', value=f'{profile.stats.tournament_cards_won}')
             em.set_author(name='Challenge/Tourney Stats')
