@@ -29,6 +29,7 @@ class cr:
             em.add_field(name='Win Rate', value=f'{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%')
             em.set_author(name='Stats')
             em.set_thumbnail(url=f'https://cr-api.github.io/cr-api-assets/arenas/arena{profile.arena.arenaID}.png')
+            em.set_footer(text='API: cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
             await ctx.send(embed=em)
             profile = await self.client.get_player(crtag)
             try:
@@ -43,11 +44,14 @@ class cr:
                 em.add_field(name='Clan Score', value=f'{clan.score}')
                 em.add_field(name='Members', value=f'{len(clan.members)}/50')
                 em.set_thumbnail(url=clan.badge.image)
+                em.set_footer(text='API: cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
                 await ctx.send(embed=em)
             else:
                 em.description = 'No Clan'
                 em.set_thumbnail(url='http://i1253.photobucket.com/albums/hh599/bananaboy21/maxresdefault_zpseuid4jln.jpg')
+                em.set_footer(text='API: cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
                 await ctx.send(embed=em)
+        
                          
             
         
