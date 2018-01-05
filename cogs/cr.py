@@ -65,7 +65,7 @@ class cr:
             em.add_field(name='Challenge Cards Won', value=f'{profile.stats.challenge_cards_won}')
             em.add_field(name='Tourney Cards Won', value=f'{profile.stats.tournament_cards_won}')
             em.set_author(name='Challenge/Tourney Stats')
-            em.set_thumbnail(url=http://vignette4.wikia.nocookie.net/clashroyale/images/a/a7/TournamentIcon.png/revision/latest?cb=20160704151823)
+            em.set_thumbnail(url='http://vignette4.wikia.nocookie.net/clashroyale/images/a/a7/TournamentIcon.png/revision/latest?cb=20160704151823')
             await ctx.send(embed=em)
 
 
