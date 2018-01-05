@@ -26,7 +26,7 @@ class cr:
                 em.description = 'Error code **{e.code}**: {e.error}'
                 return await ctx.send(embed=em)
             color = discord.Color(value=0xf1f442)
-            em = discord.Embed(color=color, title=f'dat banana bot Stats')
+            em = discord.Embed(color=color, title=f'{profile.name} ({profile.tag})')
             em.add_field(name='Trophies', value=f'{profile.trophies}')
             em.add_field(name='Personal Best', value=f'{profile.stats.max_trophies}')
             em.add_field(name='XP Level', value=f'{profile.stats.level}')
@@ -34,7 +34,7 @@ class cr:
             em.add_field(name='Wins/Losses/Draws', value=f'{profile.games.wins}/{profile.games.draws}/{profile.games.losses}')
             em.add_field(name='Win Rate', value=f'{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%')
             em.add_field(name='Favorite Card', value=f'{profile.stats.favorite_card.name}')                                                                                                                                                 
-            em.set_author(name=f'{profile.name} ({profile.tag})')
+            em.set_author(name=f'dat banana bot Stats')
             em.set_thumbnail(url=f'https://cr-api.github.io/cr-api-assets/arenas/arena{profile.arena.arenaID}.png') # This allows thumbnail to match your arena! Maybe it IS possible after all...
             em.set_footer(text='API: cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
             await ctx.send(embed=em)
