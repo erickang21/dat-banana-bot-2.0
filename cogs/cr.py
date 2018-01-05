@@ -33,7 +33,7 @@ class cr:
             em.add_field(name='Arena', value=f'{profile.arena.name}')
             em.add_field(name='Wins/Losses/Draws', value=f'{profile.games.wins}/{profile.games.draws}/{profile.games.losses}')
             em.add_field(name='Win Rate', value=f'{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%')
-            em.add_field(name='Favorite Card', value=f'{profile.stats.favorite_card.name})                                                                                                                                                 
+            em.add_field(name='Favorite Card', value=f'{profile.stats.favorite_card.name}')                                                                                                                                                 
             em.set_author(name='Stats')
             em.set_thumbnail(url=f'https://cr-api.github.io/cr-api-assets/arenas/arena{profile.arena.arenaID}.png') # This allows thumbnail to match your arena! Maybe it IS possible after all...
             em.set_footer(text='API: cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
