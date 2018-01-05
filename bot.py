@@ -88,7 +88,7 @@ async def _set(ctx, Type=None,*,thing=None):
                 
 @bot.command()
 async def bug(ctx, *, msg:str):
-    """Does this bot have a bug? Report it and we squash it."""
+    """Got a PROB? Tell us about it...  """
     lol = bot.get_channel(373917178547929088)
     color = discord.Color(value=0x00ff00)
     em=discord.Embed(color=color, title="Bug reported!")

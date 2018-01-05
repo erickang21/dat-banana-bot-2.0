@@ -43,10 +43,11 @@ class cr:
                 em.add_field(name='Clan Score', value=f'{clan.score}')
                 em.add_field(name='Members', value=f'{len(clan.members)}/50')
                 em.set_thumbnail(url=clan.badge.image)
+                await ctx.send(embed=em)
             else:
                 em.description = 'No Clan'
-                em.set_thumbnail(url=
-            
+                em.set_thumbnail(url='http://i1253.photobucket.com/albums/hh599/bananaboy21/maxresdefault_zpseuid4jln.jpg')
+                await ctx.send(embed=em)
                          
             
         
