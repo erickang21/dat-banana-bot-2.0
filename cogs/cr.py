@@ -47,7 +47,7 @@ class cr:
             if profile.clan.role:
                 em = discord.Embed(color=color)
                 em.description = f'{clan.name} (#{clan.tag})'
-                em.add_field(name='Role', value=f'{profile.clan.role})                                                                                                                                                                      
+                em.add_field(name='Role', value=f'{profile.clan.role}')                                                                                                                                                                      
                 em.add_field(name='Clan Score', value=f'{clan.score}')
                 em.add_field(name='Members', value=f'{len(clan.members)}/50')
                 em.set_thumbnail(url=clan.badge.image)
@@ -69,10 +69,6 @@ class cr:
             await ctx.send(embed=em)
 
 
-
-                         
-            
-        
 
 def setup(bot): 
     bot.add_cog(cr(bot)) 
