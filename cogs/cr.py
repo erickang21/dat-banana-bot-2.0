@@ -18,7 +18,13 @@ class cr:
         if crtag is None:
             await ctx.send('Please enter your tag. Usage: *crprofile [tag].') # Bot hosts on Heroku, which means there is no save tag feature (Heroku deletes data every day.)
         else:
-            profile = await self.client.get_player(crtag)
+            try:
+                profile = await self.client.get_player(crtag)
+            except (clashroyale.errors.NotResponding, clashroyale.errors.ServerError) as e:
+                color = discord.Color(value=0xf44242)
+                em = discord.Embed(color=color, title='An error occured.')
+                em.description = 'Error code **{e.code}**: {e.error}'
+                return await ctx.send(embed=em)
             color = discord.Color(value=0xf1f442)
             em = discord.Embed(color=color, title=f'{profile.name}')
             em.add_field(name='Trophies', value=f'{profile.trophies}')
