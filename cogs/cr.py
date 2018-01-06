@@ -75,7 +75,7 @@ class cr:
             return await ctx.send('Please enter a valid clan tag. Usage: *crclan [clan tag]')
         else:
             try:
-                clan = await client.get_clan(clantag)
+                clan = await self.client.get_clan(clantag)
             except (clashroyale.errors.NotResponding, clashroyale.errors.ServerError) as e:
                 color = discord.Color(value=0xf44242)
                 em = discord.Embed(color=color, title='An error occurred.')
