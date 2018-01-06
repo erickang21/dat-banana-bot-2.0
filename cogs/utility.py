@@ -54,6 +54,14 @@ class utility:
         em = discord.Embed(color=color, title='Rolled! (1 6-sided die)', description=random.choice(choices))
         await ctx.send(embed=em)
         
+
+    @commands.command()
+    async def flipcoin(self, ctx):
+        """Flip a coin. Any coin."""
+        choices = ['Heads', 'Tails', 'Coin self-destructed.']
+        color = discord.Color(value=0x00ff00)
+        em = discord.Embed(color=color, title='Flipped a coin!')
+
         
     @commands.command(aliases=['tf'])
     async def textface(self, ctx, Type):

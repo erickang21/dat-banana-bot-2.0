@@ -36,7 +36,6 @@ class cr:
             em.add_field(name='Favorite Card', value=f'{profile.stats.favorite_card.name}')                                                                                                                                                 
             em.set_author(name=f'dat banana bot Stats')
             em.set_thumbnail(url=f'https://cr-api.github.io/cr-api-assets/arenas/arena{profile.arena.arenaID}.png') # This allows thumbnail to match your arena! Maybe it IS possible after all...
-            em.set_footer(text='API: cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
             await ctx.send(embed=em)
             profile = await self.client.get_player(crtag)
             try:
@@ -51,7 +50,6 @@ class cr:
                 em.add_field(name='Clan Score', value=f'{clan.score}')
                 em.add_field(name='Members', value=f'{len(clan.members)}/50')
                 em.set_thumbnail(url=clan.badge.image)
-                em.set_footer(text='API: cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
                 await ctx.send(embed=em)
             else:
                 em.description = 'No Clan'
@@ -66,9 +64,73 @@ class cr:
             em.add_field(name='Tourney Cards Won', value=f'{profile.stats.tournament_cards_won}')
             em.set_author(name='Challenge/Tourney Stats')
             em.set_thumbnail(url='http://vignette4.wikia.nocookie.net/clashroyale/images/a/a7/TournamentIcon.png/revision/latest?cb=20160704151823')
+            em.set_footer(text='cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
             await ctx.send(embed=em)
 
 
+    @commands.command()
+    async def crclan(self, ctx, clantag:str):
+        """Shows info for a clan. Usage: *crclan [CLAN TAG]"""
+        if clantag is None:
+            return await ctx.send('Please enter a valid clan tag. Usage: *crclan [clan tag]')
+        else:
+            try:
+                profile = await self.client.get_player(crtag)
+            except (clashroyale.errors.NotResponding, clashroyale.errors.ServerError) as e:
+                color = discord.Color(value=0xf44242)
+                em = discord.Embed(color=color, title='An error occurred.')
+                em.description = 'Error code **{e.code}**: {e.error}'
+                return await ctx.send(embed=em)
+            try:
+                clan = await profile.get_clan()
+            except:
+                pass
+            color = discord.Color(value=0xf1f442)
+            em = discord.Embed(title=f'{clan.name}', color=color)
+            em.description = f'{clan.description}'
+            em.add_field(name='Clan Trophies', value=f'{clan.score}')
+            em.add_field(name='Members', value=f'{clan.memberCount}/50')
+            em.add_field(name='Type', value=f'{clan.type}')
+            em.add_field(name='Weekly Donations', value=f'{clan.donations}')
+            em.add_field(name='Location', value=f'{clan.location.name}')
+            if clan.clan_chest.status == 'inactive':
+                tier = "Inactive"
+            else:
+                crowns = 0
+                for m in clan.members:
+                    crowns += m.clan_chest_crowns
+                if crowns < 70:
+                    tier = '0/10'
+                if crowns > 70 and crowns < 160:
+                    tier = '1/10'
+                if crowns > 160 and crowns < 270:
+                    tier = '2/10'
+                if crowns > 270 and crowns < 400:
+                    tier = '3/10'
+                if crowns > 400 and crowns < 550:
+                    tier = '4/10'
+                if crowns > 550 and crowns < 720:
+                    tier = '5/10'
+                if crowns > 720 and crowns < 910:
+                    tier = '6/10'
+                if crowns > 910 and crowns < 1120:
+                    tier = '7/10'
+                if crowns > 1120 and crowns < 1350:
+                    tier = '8/10'
+                if crowns > 1350 and crowns < 1600:
+                    tier = '9/10'
+                if crowns == 1600:
+                    tier = '10/10'
+            em.add_field(name='Clan Chest Tier', value=f'{tier}')
+            em.add_field(name='Trophy Requirement', value=f'{clan.requiredScore}')
+            em.set_author(name=f'#{clan.tag}')
+            em.set_thumbnail(url=f'{clan.badge.image}')
+            em.set_footer(text='cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
+            await ctx.send(embed=em)
+
+
+
+        
 
 def setup(bot): 
     bot.add_cog(cr(bot)) 
