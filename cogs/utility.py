@@ -60,7 +60,9 @@ class utility:
         """Flip a coin. Any coin."""
         choices = ['Heads', 'Tails', 'Coin self-destructed.']
         color = discord.Color(value=0x00ff00)
-        em = discord.Embed(color=color, title='Flipped a coin!')
+        em=discord.Embed(color=color, title='Flipped a coin!')
+        em.description = random.choice(choices)
+        await ctx.send(embed=em)
 
         
     @commands.command(aliases=['tf'])
