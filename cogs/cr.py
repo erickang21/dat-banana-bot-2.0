@@ -75,7 +75,7 @@ class cr:
             return await ctx.send('Please enter a valid clan tag. Usage: *crclan [clan tag]')
         else:
             try:
-                clan = await get_clan(clantag)
+                clan = await client.get_clan(clantag)
             except (clashroyale.errors.NotResponding, clashroyale.errors.ServerError) as e:
                 color = discord.Color(value=0xf44242)
                 em = discord.Embed(color=color, title='An error occurred.')
@@ -96,27 +96,27 @@ class cr:
                 for m in clan.members:
                     crowns += m.clan_chest_crowns
                 if crowns < 70:
-                    tier = '0/10'
+                    tier = "0/10"
                 if crowns > 70 and crowns < 160:
-                    tier = '1/10'
+                    tier = "1/10"
                 if crowns > 160 and crowns < 270:
-                    tier = '2/10'
+                    tier = "2/10"
                 if crowns > 270 and crowns < 400:
-                    tier = '3/10'
+                    tier = "3/10"
                 if crowns > 400 and crowns < 550:
-                    tier = '4/10'
+                    tier = "4/10"
                 if crowns > 550 and crowns < 720:
-                    tier = '5/10'
+                    tier = "5/10"
                 if crowns > 720 and crowns < 910:
-                    tier = '6/10'
+                    tier = "6/10"
                 if crowns > 910 and crowns < 1120:
-                    tier = '7/10'
+                    tier = "7/10"
                 if crowns > 1120 and crowns < 1350:
-                    tier = '8/10'
+                    tier = "8/10"
                 if crowns > 1350 and crowns < 1600:
-                    tier = '9/10'
+                    tier = "9/10"
                 if crowns == 1600:
-                    tier = '10/10'
+                    tier = "10/10"
             em.add_field(name='Clan Chest Tier', value=f'{tier}')
             em.add_field(name='Trophy Requirement', value=f'{clan.requiredScore}')
             em.set_author(name=f'#{clan.tag}')
