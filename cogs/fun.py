@@ -218,7 +218,12 @@ class fun:
     async def lifehack(self, ctx):
         """Learn a new way to hack life, one at a time."""
         choices = ["If you want to buy the cheapest airline tickets online, use your browser's incognito mode. Prices go up if you visit a site multiple times.", "An iPad charger will charge your iPhone much faster.", "Changing the font size of periods from 12 to 14 makes a paper look significantly longer.", "The harder you concentrate on falling asleep, the harder it is to actually fall asleep.", "Trucks drivers are always communicating with each other on the road. If you see one slow down for no reason, there's probably a cop ahead.", "Restaurant are required to give you free water.", "By peeing in the shower, you can save about 1157 gallons of water a year!", "Lick your wrist and smell it. This is what your breath smells like to others."]
- 
+        color = discord.Color(value=0x00ff00)
+        em=discord.Embed(color=color, title="Life Hack")
+        em.description = random.choice(choices) 
+        em.set_footer(text="Source: Crumblyy")
+        await ctx.send(embed=em)
+    
     
     @commands.command()
     async def annoy(self, ctx, member: discord.Member, times: int):
