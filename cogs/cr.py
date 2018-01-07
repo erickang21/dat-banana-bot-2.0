@@ -37,7 +37,7 @@ class cr:
 
     @commands.command()
     async def crprofile(self, ctx, crtag:str):
-        """Shows CR stats for you! Usage: *crprofile [tag]"""
+        """Gets those sweet Stats for CR...Usage: *crprofile [tag]"""
         if crtag is None:
             with open("data/crtags.json") as f:
                 lol = json.load(f)
