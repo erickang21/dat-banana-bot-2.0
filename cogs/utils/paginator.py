@@ -351,7 +351,6 @@ class HelpPaginator(Pages):
         self.prefix = cleanup_prefix(ctx.bot, ctx.prefix)
 
         # no longer need the database
-        await ctx.release()
 
         return self
 
