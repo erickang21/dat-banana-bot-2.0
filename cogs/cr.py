@@ -33,6 +33,7 @@ class cr:
                 lol = json.load(f)
                 lol[ctx.author.id] = tag
                 json.dumps(lol, indent=4)
+                f.close()
                 await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
 
 
