@@ -22,6 +22,7 @@ bot.load_extension("cogs.fun")
 bot.load_extension("cogs.info")
 bot.load_extension("cogs.developer")
 bot.load_extension("cogs.cr")
+bot.load_extension("cogs.help")
 
 
 def cleanup_code(content):
