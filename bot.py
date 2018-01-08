@@ -94,7 +94,6 @@ async def bug(ctx, *, msg:str):
     em=discord.Embed(color=color, title="Bug reported!")
     em.description = f"Bug: {msg}"
     em.set_footer(text=f"Bug sent by {ctx.message.author.name}")                         
-    await lol.send(embed=em)                     
     await ctx.send("Thanks for reporting that bug! :bug: We will get back to you ASAP.")                     
  
                 
@@ -112,8 +111,7 @@ async def ping(ctx):
     em = discord.Embed(color=color, title='PoIIIng! Your supersonic latency is:')
     em.description = f"{bot.latency * 1000:.4f} ms"
     em.set_footer(text="Psst...A heartbeat is 27 ms!")
-    await ctx.send(embed=em)        
-        
+  
         
 @bot.command()
 async def invite(ctx):
@@ -175,6 +173,6 @@ async def _eval(ctx, *, body: str):
             await ctx.send(f'```py\n{value}{ret}\n```')    
                        
                        
-
-
-
+if not os.environ.get('TOKEN'):
+    print("no token found REEEE!")
+bot.run(os.environ.get('TOKEN').strip('"'))
