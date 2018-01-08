@@ -152,7 +152,7 @@ class cr:
                         tier = "10/10"
                 em.add_field(name='Clan Chest Tier', value=f'{tier}')
                 em.add_field(name='Trophy Requirement', value=f'{clan.requiredScore}')
-                    em.set_author(name=f'#{clan.tag}')
+                em.set_author(name=f'#{clan.tag}')
                 em.set_thumbnail(url=f'{clan.badge.image}')
                 em.set_footer(text='cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
                 await ctx.send(embed=em)
