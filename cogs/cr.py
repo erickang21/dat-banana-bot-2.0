@@ -2,6 +2,7 @@ import discord
 import sys
 import os
 import io
+import json
 import clashroyale
 from discord.ext import commands
 
