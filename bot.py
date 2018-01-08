@@ -176,5 +176,5 @@ async def _eval(ctx, *, body: str):
                        
                        
 
-bot.run("Mzg4NDc2MzM2Nzc3NDYxNzcw.DTVufg.B0uLQBSofxMMDgRTAPrHFWruDws")
+
 
