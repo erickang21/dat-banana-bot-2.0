@@ -111,6 +111,7 @@ async def ping(ctx):
     em = discord.Embed(color=color, title='PoIIIng! Your supersonic latency is:')
     em.description = f"{bot.latency * 1000:.4f} ms"
     em.set_footer(text="Psst...A heartbeat is 27 ms!")
+    await ctx.send(embed=em)
   
         
 @bot.command()
