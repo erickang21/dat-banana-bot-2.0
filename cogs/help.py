@@ -1,9 +1,16 @@
 import discord
+import sys
 import os
 import io
+import asyncio
+import aiohttp
 from discord.ext import commands
 from .utils.paginator import HelpPaginator, CannotPaginate
 
+
+class help:
+    def __init__(self, bot):
+       self.bot = bot
 
     
     @commands.command(name='help')
@@ -27,3 +34,8 @@ from .utils.paginator import HelpPaginator, CannotPaginate
             await p.paginate()
         except Exception as e:
             await ctx.send(e)
+            
+            
+
+def setup(bot): 
+    bot.add_cog(help(bot))   
