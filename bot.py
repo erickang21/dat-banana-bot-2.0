@@ -24,6 +24,7 @@ bot.load_extension("cogs.developer")
 bot.load_extension("cogs.cr")
 bot.load_extension("cogs.help")
 
+bot.remove_command("help")
 
 def cleanup_code(content):
     # remove ```py\n```
