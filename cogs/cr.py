@@ -29,7 +29,7 @@ class cr:
                 return await ctx.send(embed=em)
             except NotFoundError:
                 return await ctx.send("That must be an invalid tag. Please use a valid tag.")
-            with open("data/crtags.json", "w") as f:
+            with open("data/crtags.json", "r+") as f:
                 lol = json.load(f)
                 lol[ctx.author.id] = tag
                 json.dumps(lol, indent=4)
