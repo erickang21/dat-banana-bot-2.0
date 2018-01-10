@@ -33,7 +33,7 @@ class cr:
             with open("data/crtags.json", "r+") as f:
                 lol = json.load(f)
                 lol[ctx.author.id] = tag
-                json.dumps(lol, indent=4)
+                json.dump(lol, f, indent=4)
                 f.close()
                 return await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
 
@@ -45,7 +45,7 @@ class cr:
             with open("data/crtags.json") as f:
                 lol = json.load(f)
                 try:
-                    crtag = lol[ctx.author.id]
+                    tag = lol[ctx.author.id]
                 except:
                     return await ctx.send("Uh-oh, no tag found. Use *crsave [tag] to save your player tag first.")
                 try:
