@@ -28,7 +28,7 @@ class cr:
             except (clashroyale.errors.NotResponding, clashroyale.errors.ServerError) as e:
                 color = discord.Color(value=0xf44242)
                 em = discord.Embed(color=color, title='An error occured.')
-                em.description = 'Error code **{e.code}**: {e.error}'
+                em.description = f'Error code **{e.code}**: {e.error}'
                 return await ctx.send(embed=em)
             with open("data/crtags.json", "r+") as f:
                 lol = json.load(f)
