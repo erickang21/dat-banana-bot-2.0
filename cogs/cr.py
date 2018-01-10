@@ -22,19 +22,20 @@ class cr:
             try:
                 tag = tag.strip("#")
                 await self.client.get_player(tag)
+                for char in tag:
+                    if char.upper() not in '0289PYLQGRJCUV':
+                        return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")
             except (clashroyale.errors.NotResponding, clashroyale.errors.ServerError) as e:
                 color = discord.Color(value=0xf44242)
                 em = discord.Embed(color=color, title='An error occured.')
                 em.description = 'Error code **{e.code}**: {e.error}'
                 return await ctx.send(embed=em)
-            except NotFoundError:
-                return await ctx.send("That must be an invalid tag. Please use a valid tag.")
             with open("data/crtags.json", "r+") as f:
                 lol = json.load(f)
                 lol[ctx.author.id] = tag
                 json.dumps(lol, indent=4)
                 f.close()
-                await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
+                return await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
 
 
     @commands.command()
