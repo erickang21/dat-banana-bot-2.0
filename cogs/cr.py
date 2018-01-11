@@ -14,7 +14,7 @@ class cr:
 
 
     def check_tag(self, crtag):
-        for char in tag:
+        for char in crtag:
             if char.upper() not in '0289PYLQGRJCUV':
                 return False 
             return True      
