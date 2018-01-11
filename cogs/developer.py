@@ -15,11 +15,11 @@ class developer:
 
 
     def dev_check(id):
-    with open('data/devs.json') as f:
-        devs = json.load(f)
-    if id in devs:
-        return True
-    return False
+        with open('data/devs.json') as f:
+            devs = json.load(f)
+        if id in devs:
+            return True
+        return False
        
        
        
