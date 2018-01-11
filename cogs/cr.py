@@ -25,7 +25,7 @@ class cr:
         """Saves your CR tag to your account. Usage: *crsave [player tag]"""
         if crtag is None:
             return await ctx.send("Please enter a tag to save. Usage: *crsave [tag]")
-        if not check_tag(self, crtag):
+        if not self.check_tag(self, crtag):
             return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")                   
         with open("data/crtags.json", "r+") as f:
             lol = json.load(f)
