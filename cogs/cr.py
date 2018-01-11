@@ -11,31 +11,28 @@ class cr:
     def __init__(self, bot):
         self.bot = bot
         self.client = clashroyale.Client("607d4e53a8b643f1bbb7837bacb7ec3c4706bc9420b34377a869d8048500f998", is_async=True)
+
+
+    def check_tag(self, crtag):
+        for char in tag:
+            if char.upper() not in '0289PYLQGRJCUV':
+                return False 
+            return True      
     
 
     @commands.command()
-    async def crsave(self, ctx, tag:str):
+    async def crsave(self, ctx, crtag:str):
         """Saves your CR tag to your account. Usage: *crsave [player tag]"""
         if tag is None:
             return await ctx.send("Please enter a tag to save. Usage: *crsave [tag]")
-        else:
-            try:
-                tag = tag.strip("#")
-                await self.client.get_player(tag)
-                for char in tag:
-                    if char.upper() not in '0289PYLQGRJCUV':
-                        return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")
-            except (clashroyale.errors.NotResponding, clashroyale.errors.ServerError) as e:
-                color = discord.Color(value=0xf44242)
-                em = discord.Embed(color=color, title='An error occured.')
-                em.description = f'Error code **{e.code}**: {e.error}'
-                return await ctx.send(embed=em)
-            with open("data/crtags.json", "r+") as f:
-                lol = json.load(f)
-                lol[ctx.author.id] = tag
-                f.write(json.dumps(lol, indent=4))
-                f.close()
-                return await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
+        if not check_tag(self, crtag):
+            return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")                   
+        with open("data/crtags.json", "r+") as f:
+            lol = json.load(f)
+            lol[ctx.author.id] = tag
+            f.write(json.dumps(lol, indent=4))
+            f.close()
+            return await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
 
 
     @commands.command()
