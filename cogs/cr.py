@@ -23,7 +23,7 @@ class cr:
     @commands.command()
     async def crsave(self, ctx, crtag:str):
         """Saves your CR tag to your account. Usage: *crsave [player tag]"""
-        if tag is None:
+        if crtag is None:
             return await ctx.send("Please enter a tag to save. Usage: *crsave [tag]")
         if not check_tag(self, crtag):
             return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")                   
