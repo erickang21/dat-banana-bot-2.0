@@ -29,7 +29,7 @@ class cr:
             return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")                   
         with open("data/crtags.json", "r+") as f:
             lol = json.load(f)
-            lol[ctx.author.id] = tag
+            lol[ctx.author.id] = crtag
             f.write(json.dumps(lol, indent=4))
             f.close()
             return await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
