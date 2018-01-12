@@ -17,9 +17,9 @@ class developer:
     def dev_check(id):
         with open('data/devs.json') as f:
             devs = json.load(f)
-        if id in devs:
-            return True
-        return False
+            if id in devs:
+                return True
+            return False
        
        
        
@@ -47,7 +47,7 @@ class developer:
 
     @commands.command()
     async def exec(self, ctx, code):
-        """Executes code like Command Line."""
+        """Executes code like the Command Line."""
         if not dev_check(ctx.author.id):
             return await ctx.send("HALT! This command is for the devs only. Sorry. :x:")
         await ctx.send(subprocess.run(f"{code}",stdout=subprocess.PIPE).stdout.decode('utf-8'))
