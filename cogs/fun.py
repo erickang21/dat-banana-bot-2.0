@@ -191,7 +191,7 @@ class fun:
               await msg.edit(content="```Ye WOT M8?!?!?!")
               await asyncio.sleep(1)
               await msg.edit(content="Ye WOT M8?!?!?!")
-            elif Type.lower() == 'oj'
+            elif Type.lower() == 'oj':
               msg = await ctx.send("```M```")
               await asyncio.sleep(1)
               await msg.edit(content="```Mm```")
