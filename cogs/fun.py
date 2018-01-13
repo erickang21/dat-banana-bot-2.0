@@ -190,7 +190,29 @@ class fun:
               await asyncio.sleep(1)
               await msg.edit(content="```Ye WOT M8?!?!?!")
               await asyncio.sleep(1)
-              await msg.edit(content="Ye WOT M8?!?!?!")             
+              await msg.edit(content="Ye WOT M8?!?!?!")
+            elif Type.lower() == 'oj'
+              msg = await ctx.send("```M```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mm```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm i```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm it```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm it'```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm it's```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm it's a```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm it's a ORANGE```")
+              await asyncio.sleep(1)
+              await msg.edit(content="```Mmm it's a ORANGE JUICE```")
+              await asyncio.sleep(1)
+              await msg.edit(content="Mmm it's a ORANGE JUICE")             
             elif Type.lower() == 'list':
               color = discord.Color(value=0x00ff00)
               em=discord.Embed(color=color, title="Current List of Awesome Animations:")
@@ -206,7 +228,7 @@ class fun:
         """Really desperate? Ask the 8ball for advice. Only yes/no questions!"""
         choices = ['It is certain. :white_check_mark:', 'It is decidedly so. :white_check_mark:', 'Without a doubt. :white_check_mark:', 'Yes, definitely. :white_check_mark:', 'You may rely on it. :white_check_mark:', 'As I see it, yes. :white_check_mark:', 'Most likely. :white_check_mark:', ' Outlook good. :white_check_mark:', 'Yes. :white_check_mark:', 'Signs point to yes. :white_check_mark:', 'Reply hazy, try again. :large_orange_diamond: ', 'Ask again later. :large_orange_diamond: ', 'Better not tell you now. :large_orange_diamond: ', 'Cannot predict now. :large_orange_diamond: ', 'Concentrate and ask again. :large_orange_diamond: ', 'Do not count on it. :x:', 'My reply is no. :x:', 'My sources say no. :x:', 'Outlook not so good. :x:', 'Very doubtful. :x:']
         color = discord.Color(value=0x00ff00)
-        em=discord.Embed(color=color, title=f"{message}")
+        em = discord.Embed(color=color, title=f"{message}")
         em.description = random.choice(choices) 
         em.set_author(name="The Mighty 8 ball", icon_url="https://vignette.wikia.nocookie.net/battlefordreamislandfanfiction/images/5/53/8-ball_my_friend.png/revision/latest?cb=20161109021012")
         em.set_footer(text=f"Sent by {ctx.message.author.name}")
@@ -219,7 +241,7 @@ class fun:
         """Learn a new way to hack life, one at a time."""
         choices = ["If you want to buy the cheapest airline tickets online, use your browser's incognito mode. Prices go up if you visit a site multiple times.", "An iPad charger will charge your iPhone much faster.", "Changing the font size of periods from 12 to 14 makes a paper look significantly longer.", "The harder you concentrate on falling asleep, the harder it is to actually fall asleep.", "Trucks drivers are always communicating with each other on the road. If you see one slow down for no reason, there's probably a cop ahead.", "Restaurant are required to give you free water.", "By peeing in the shower, you can save about 1157 gallons of water a year!", "Lick your wrist and smell it. This is what your breath smells like to others."]
         color = discord.Color(value=0x00ff00)
-        em=discord.Embed(color=color, title="Life Hack")
+        em = discord.Embed(color=color, title="Life Hack")
         em.description = random.choice(choices) 
         em.set_footer(text="Source: Crumblyy")
         await ctx.send(embed=em)
