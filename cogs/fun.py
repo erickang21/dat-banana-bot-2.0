@@ -216,7 +216,7 @@ class fun:
             elif Type.lower() == 'list':
               color = discord.Color(value=0x00ff00)
               em=discord.Embed(color=color, title="Current List of Awesome Animations:")
-              em.description = "wtf (anim wtf), mom (anim mom), gethelp (anim gethelp), sike (anim sike), gitgud (anim gitgud), clock (anim clock), mate (anim mate)."
+              em.description = "wtf (anim wtf), mom (anim mom), gethelp (anim gethelp), sike (anim sike), gitgud (anim gitgud), clock (anim clock), mate (anim mate), oj (anim oj)."
               em.set_footer(text="We will always be adding new animations!")
               await ctx.send(embed=em)
             else:
