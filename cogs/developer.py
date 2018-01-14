@@ -43,7 +43,7 @@ class developer:
         if name is None:
             return await ctx.send("Hmm...my name cannot be blank!")
         else:
-            await self.bot.user.edit(username=name)
+            await self.bot.user.edit(username=f'name')
 
 
     @commands.command()
