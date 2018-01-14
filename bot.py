@@ -134,7 +134,7 @@ async def _discord(ctx):
 async def _eval(ctx, *, body: str):
 
     if not dev_check(ctx.author.id):
-        return
+        return await ctx.send("HALT! This command is for the devs only. Sorry. :x:")
 
     env = {
         'bot': bot,
