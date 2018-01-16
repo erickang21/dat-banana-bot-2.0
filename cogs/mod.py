@@ -2,6 +2,7 @@ import discord
 import sys
 import os
 import io
+import asyncio
 from discord.ext import commands
 
 
@@ -60,6 +61,40 @@ class mod:
         """Swings the mighty Ban Hammer on that bad boy."""
         await ctx.channel.send(f"The ban hammer has fallen. And it has struck {user.name}.")
         await user.ban()
+
+
+
+    @commands.command()
+    @commands.has_permissions(ban_members=True)
+    async def mute(self, ctx, user: discord.Member, time: int):
+        '''Forces someone to shut up. Usage: *mute [user] [time in mins]'''
+        if time is None:
+            await ctx.guild.set_permissions(user, send_messages=False)
+            await ctx.channel.send(f"{user.mention} is now forced to shut up. :zipper_mouth: ")
+        else:
+            try:
+                time = time * 60
+                float(time)
+            except:
+                return await ctx.send("Your time is an invalid number. Make sure...it is a number.")
+            await ctx.guild.set_permissions(user, send_messages=False)
+            await ctx.channel.send(f"{user.mention} is now forced to shut up. :zipper_mouth: ")
+            await asyncio.sleep(time)
+            await ctx.guild.set_permissions(user, send_messages=True)
+            await ctx.channel.send(f"{user.mention} is now un-shutted up.")
+        except discord.Forbidden:
+            return await ctx.send("I could not mute the user. Make sure I have the manage channels permission.")
+
+
+    @commands.command()
+    @commands.has_permissions(ban_members=True)
+    async def unmute(self, ctx, user: discord.Member):
+        '''Allows someone to un-shut up. Usage: *unmute [user]'''
+        if user is None:
+            await ctx.send("Dang. You must enter a user to un-shut them up!")
+        else:
+            await ctx.guild.set_permissions(user, send_messages=True)
+            await ctx.channel.send(f"{user.mention} is now un-shutted up.")
         
         
     @commands.command()
