@@ -19,16 +19,6 @@ class errors:
 		self.bot = bot
 
 
-	async def on_command_error(self, ctx, error):
-		if isinstance (error, commands.CommandNotFound):
-			color = discord.Color(value=0xf44242)
-			em = discord.Embed(color=color, title = "Error: Command not found")
-			em.description = "Command not found. \n To see what I can do for you, type *help."
-			em.add_field(name="Command Used: ", value = ctx.message.content)
-			em.set_footer(text=f"Error caused by: {ctx.author.name}")
-			await ctx.send(embed=em)
-
-
 		elif isinstance(error, commands.CommandOnCooldown):
 			color = discord.Color(value=0xf44242)
 			em = discord.Embed(color=color, title = "Error: Command spam!")
