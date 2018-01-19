@@ -30,8 +30,7 @@ class cr:
         with open("data/crtags.json", "r+") as f:
             lol = json.load(f)
             lol[ctx.author.id] = crtag
-            f.write(json.dumps(lol, indent=4))
-            f.close()
+            json.dump(lol, f, indent=4)
             return await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
 
 
