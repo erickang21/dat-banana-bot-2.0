@@ -40,10 +40,17 @@ class mod:
     async def purge(self, ctx, num: int):
         """Deletes a # of msgs. *purge [# of msgs].""" 
         try: 
-            await ctx.channel.purge(limit=num+1)
-            await ctx.send("Purged successfully :white_check_mark:")
-        except:
-            await ctx.send("Purge unsuccessful. That must be an invalid number, or you/the bot do not have Manage Msgs permission.")
+            if num is None:
+                await ctx.send("How many messages would you like me to delete? Usage: *purge [number of msgs]")
+            else:
+                try:
+                    float(num)
+                except ValueError:
+                    return await ctx.send("The number is invalid. Make sure it is valid! Usage: *purge [number of msgs]")
+                await ctx.channel.purge(limit=num+1)
+                await ctx.send("Purged successfully :white_check_mark:")
+        except discord.Forbidden:
+            await ctx.send("Purge unsuccessful. The bot does not have Manage Msgs permission.")
     
     
     @commands.command()
@@ -76,7 +83,7 @@ class mod:
                 try:
                     time = time * 60
                     float(time)
-                except:
+                except ValueError:
                     return await ctx.send("Your time is an invalid number. Make sure...it is a number.")
                 await ctx.guild.set_permissions(user, send_messages=False)
                 await ctx.channel.send(f"{user.mention} is now forced to shut up. :zipper_mouth: ")
