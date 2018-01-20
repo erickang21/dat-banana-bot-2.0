@@ -25,6 +25,7 @@ bot.load_extension("cogs.developer")
 bot.load_extension("cogs.cr")
 bot.load_extension("cogs.help")
 bot.load_extension("cogs.errors")
+bot.load_extension("cogs.lol")
 
 
 
