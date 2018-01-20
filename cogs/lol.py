@@ -26,7 +26,7 @@ class lol:
     	"""Gets League of Legends stats! Usage: *lolprofile [summoner name]"""
     	cass.set_riot_api_key('RGAPI-338c02bc-134d-4055-b846-41045a553b9b')
         cass.set_default_region("NA")
-    	color = discord.Color(value=0xf1f442)  	
+		color = discord.Color(value=0xf1f442)  	
     	summoner = cass.get_summoner(name=lolname)
     	check = summoner.exists
     	if check == 'False':
