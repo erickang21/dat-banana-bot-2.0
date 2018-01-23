@@ -10,6 +10,8 @@ from discord.ext import commands
 class cr:
     def __init__(self, bot):
         self.bot = bot
+        with open('apikeys.json') as f:
+            settings = json.load(f)
         self.client = clashroyale.Client("607d4e53a8b643f1bbb7837bacb7ec3c4706bc9420b34377a869d8048500f998", is_async=True)
 
 
@@ -42,6 +44,7 @@ class cr:
         em = discord.Embed(color=color, title=f'{profile.name} (#{profile.tag})')
         em.add_field(name='Trophies', value=f'{profile.trophies}')
         em.add_field(name='Personal Best', value=f'{profile.stats.max_trophies}')
+        em.add_field(name='Legend Trophies', value=f'{profile.stats.legend_trophies}')
         em.add_field(name='XP Level', value=f'{profile.stats.level}')
         em.add_field(name='Arena', value=f'{profile.arena.name}')
         em.add_field(name='Wins/Losses/Draws', value=f'{profile.games.wins}/{profile.games.draws}/{profile.games.losses}')
@@ -91,6 +94,8 @@ class cr:
             em = discord.Embed(color=color, title='An error occured.')
             em.description = f'Error code **{e.code}**: {e.error}'
             return await ctx.send(embed=em)
+        except Exception:
+            return await ctx.send("Invalid clan tag! Usage")
         color = discord.Color(value=0xf1f442)
         em = discord.Embed(color=color, title=f'{clan.name}')
         em.description = f'{clan.description}'
