@@ -22,7 +22,7 @@ class lol:
 
     @commands.command()
     async def lolprofile(self, ctx, *, lolname:str):
-    """Gets League of Legends stats! *lolprofile [name]"""
+        """Gets League of Legends stats! *lolprofile [name]"""
         try:    
             cass.set_riot_api_key('RGAPI-cda7f225-9ca9-4cb5-a932-9c9c7f7f7455')
             cass.set_default_region("NA")
