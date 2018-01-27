@@ -3,6 +3,7 @@ import sys
 import os
 import io
 import json
+import ezjson
 import clashroyale
 from discord.ext import commands
 
@@ -10,9 +11,10 @@ from discord.ext import commands
 class cr:
     def __init__(self, bot):
         self.bot = bot
-        with open('apikeys.json') as f:
-            settings = json.load(f)
-        self.client = clashroyale.Client("607d4e53a8b643f1bbb7837bacb7ec3c4706bc9420b34377a869d8048500f998", is_async=True)
+        with open('data/apikeys.json') as f:
+            lol = json.load(f)
+            self.token = lol.get("crapi")
+        self.client = clashroyale.Client(token=self.token, is_async=True)
 
 
     def check_tag(self, crtag):
@@ -23,65 +25,69 @@ class cr:
     
 
     @commands.command()
-    async def crsave(self, ctx, crtag:str):
+    async def crsave(self, ctx, crtag=None):
         """Saves your CR tag to your account. Usage: *crsave [player tag]"""
         if crtag is None:
             return await ctx.send("Please enter a tag to save. Usage: *crsave [tag]")
         if not self.check_tag(crtag):
-            return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")                   
-        with open("data/crtags.json", "r+") as f:
-            lol = json.load(f)
-            lol[ctx.author.id] = crtag
-            json.dump(lol, f, indent=4)
-            return await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
+            return await ctx.send("That must be an invalid tag. Please use a valid tag. :x:")   
+        ezjson.dump("data/crtags.json", ctx.author.id, crtag)                
+        await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
 
 
     @commands.command()
     async def crprofile(self, ctx, crtag:str):
         """Gets those sweet Stats for CR...Usage: *crprofile [tag]"""
-        profile = await self.client.get_player(crtag)
-        color = discord.Color(value=0xf1f442)
-        em = discord.Embed(color=color, title=f'{profile.name} (#{profile.tag})')
-        em.add_field(name='Trophies', value=f'{profile.trophies}')
-        em.add_field(name='Personal Best', value=f'{profile.stats.max_trophies}')
-        em.add_field(name='Legend Trophies', value=f'{profile.stats.legend_trophies}')
-        em.add_field(name='XP Level', value=f'{profile.stats.level}')
-        em.add_field(name='Arena', value=f'{profile.arena.name}')
-        em.add_field(name='Wins/Losses/Draws', value=f'{profile.games.wins}/{profile.games.draws}/{profile.games.losses}')
-        em.add_field(name='Win Rate', value=f'{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%')
-        em.add_field(name='Favorite Card', value=f'{profile.stats.favorite_card.name}')                                                                                                                                                 
-        em.set_author(name=f'dat banana bot Stats')
-        em.set_thumbnail(url=f'https://cr-api.github.io/cr-api-assets/arenas/arena{profile.arena.arenaID}.png') # This allows thumbnail to match your arena! Maybe it IS possible after all...
-        await ctx.send(embed=em)
-        try:
-            clan = await profile.get_clan()
-        except:
-            pass
-        if profile.clan.role:
-            color = discord.Color(value=0xf1f442)
-            em = discord.Embed(color=color, title='Clan')
-            em.description = f'{clan.name} (#{clan.tag})'
-            em.add_field(name='Role', value=f'{profile.clan.role}')                                                                                                                                                                      
-            em.add_field(name='Clan Score', value=f'{clan.score}')
-            em.add_field(name='Members', value=f'{len(clan.members)}/50')
-            em.set_thumbnail(url=clan.badge.image)
-            await ctx.send(embed=em)
-        else:
-            color = discord.Color(value=0xf1f442)
-            em = discord.Embed(color=color, title='Clan')
-            em.description = 'No Clan'
-            em.set_thumbnail(url='http://i1253.photobucket.com/albums/hh599/bananaboy21/maxresdefault_zpseuid4jln.jpg') # This is the url for the No Clan symbol.   
-            await ctx.send(embed=em)
-        profile = await self.client.get_player(crtag)
-        color = discord.Color(value=0xf1f442)
-        em = discord.Embed(color=color)
-        em.add_field(name='Challenge Max Wins', value=f'{profile.stats.challenge_max_wins}')
-        em.add_field(name='Challenge Cards Won', value=f'{profile.stats.challenge_cards_won}')
-        em.add_field(name='Tourney Cards Won', value=f'{profile.stats.tournament_cards_won}')
-        em.set_author(name='Challenge/Tourney Stats')
-        em.set_thumbnail(url='http://vignette4.wikia.nocookie.net/clashroyale/images/a/a7/TournamentIcon.png/revision/latest?cb=20160704151823')
-        em.set_footer(text='cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
-        await ctx.send(embed=em)
+        if crtag is None:
+            with open('data/crtags.json') as f:
+                lol = json.load(f)
+                userid = str(ctx.author.id)
+                crtag = lol[userid]
+                if crtag is None:
+                    await ctx.send("Uh-oh, no tag found! Use *cocsave [tag] to save your tag to your Discord account. :x:")
+                else:
+                    profile = await self.client.get_player(crtag)
+                    color = discord.Color(value=0xf1f442)
+                    em = discord.Embed(color=color, title=f'{profile.name} (#{profile.tag})')
+                    em.add_field(name='Trophies', value=f'{profile.trophies}')
+                    em.add_field(name='Personal Best', value=f'{profile.stats.max_trophies}')
+                    em.add_field(name='XP Level', value=f'{profile.stats.level}')
+                    em.add_field(name='Arena', value=f'{profile.arena.name}')
+                    em.add_field(name='Wins/Losses/Draws', value=f'{profile.games.wins}/{profile.games.draws}/{profile.games.losses}')
+                    em.add_field(name='Win Rate', value=f'{(profile.games.wins / (profile.games.wins + profile.games.losses) * 100):.3f}%')
+                    em.add_field(name='Favorite Card', value=f'{profile.stats.favorite_card.name}')                                                                                                                                                 
+                    em.set_author(name=f'dat banana bot Stats')
+                    em.set_thumbnail(url=f'https://cr-api.github.io/cr-api-assets/arenas/arena{profile.arena.arenaID}.png') # This allows thumbnail to match your arena! Maybe it IS possible after all...
+                    await ctx.send(embed=em)
+                    try:
+                        clan = await profile.get_clan()
+                    except:
+                        pass
+                    if profile.clan.role:
+                        color = discord.Color(value=0xf1f442)
+                        em = discord.Embed(color=color, title='Clan')
+                        em.description = f'{clan.name} (#{clan.tag})'
+                        em.add_field(name='Role', value=f'{profile.clan.role}')                                                                                                                                                                      
+                        em.add_field(name='Clan Score', value=f'{clan.score}')
+                        em.add_field(name='Members', value=f'{len(clan.members)}/50')
+                        em.set_thumbnail(url=clan.badge.image)
+                        await ctx.send(embed=em)
+                    else:
+                        color = discord.Color(value=0xf1f442)
+                        em = discord.Embed(color=color, title='Clan')
+                        em.description = 'No Clan'
+                        em.set_thumbnail(url='http://i1253.photobucket.com/albums/hh599/bananaboy21/maxresdefault_zpseuid4jln.jpg') # This is the url for the No Clan symbol.   
+                        await ctx.send(embed=em)
+                    profile = await self.client.get_player(crtag)
+                    color = discord.Color(value=0xf1f442)
+                    em = discord.Embed(color=color)
+                    em.add_field(name='Challenge Max Wins', value=f'{profile.stats.challenge_max_wins}')
+                    em.add_field(name='Challenge Cards Won', value=f'{profile.stats.challenge_cards_won}')
+                    em.add_field(name='Tourney Cards Won', value=f'{profile.stats.tournament_cards_won}')
+                    em.set_author(name='Challenge/Tourney Stats')
+                    em.set_thumbnail(url='http://vignette4.wikia.nocookie.net/clashroyale/images/a/a7/TournamentIcon.png/revision/latest?cb=20160704151823')
+                    em.set_footer(text='cr-api.com', icon_url='http://cr-api.com/static/img/branding/cr-api-logo.png')
+                    await ctx.send(embed=em)
 
 
     @commands.command()
