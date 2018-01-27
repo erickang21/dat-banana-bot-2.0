@@ -4,13 +4,17 @@ import os
 import io
 import json
 import aiohttp
+import ezjson
 from discord.ext import commands
 
 
 class coc:
     def __init__(self, bot):
         self.bot = bot
-        self.client = {'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImM4MjA0NGYyLWQ1ZjEtNDNhMS05ZDBjLWI3ZDcxZTgzZTc0ZSIsImlhdCI6MTUxNjc0Mzc5MSwic3ViIjoiZGV2ZWxvcGVyLzRjZDgyZTdlLWYzNTEtYWEyMi0xYjZhLTU3MWUyZjhkNmM2NiIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjE4LjIxNy4yMDUuNyJdLCJ0eXBlIjoiY2xpZW50In1dfQ.NE-RwoECn6y3DpprAOQsIqD0BkKjbea4Qi_EqRw4pozRexogizofvj5bJBqZ97CpnCpCVs2ZenhuJXV1VqE71Q"}
+		with open('data/apikeys.json') as f:
+            lol = json.load(f)
+            self.token = lol.get("cocapi")
+        self.client = {'Authorization': self.token}
 
 
 
@@ -23,11 +27,8 @@ class coc:
         for char in coctag:
             if char.upper() not in '0289PYLQGRJCUV':
         		return await ctx.send(f'Oops again! Looks like your tag `#{coctag}` is not a valid tag!')
-        with open("data/crtags.json", "r+") as f:
-            lol = json.load(f)
-            lol[ctx.author.id] = coctag
-            json.dump(lol, f, indent=4)
-            await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
+        ezjson.dump("data/coctags.json", ctx.author.id, coctag)
+ 		await ctx.send("Success. :white_check_mark: Your tag is now saved to your account.")
 
 
 
@@ -37,7 +38,8 @@ class coc:
         if coctag is None:
             with open('data/coctags.json') as f:
                 lol = json.load(f)
-                coctag = lol[ctx.author.id]
+                userid = str(ctx.author.id)
+                coctag = lol[userid]
                 if coctag is None:
                     await ctx.send("Uh-oh, no tag found! Use *cocsave [tag] to save your tag to your Discord account. :x:")
                 else:               
