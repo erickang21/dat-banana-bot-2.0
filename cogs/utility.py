@@ -94,7 +94,7 @@ class utility:
             elif Type.lower() == 'list':
               color = discord.Color(value=0x00ff00)
               em = discord.Embed(color=color, title='List of Textfaces')
-              em.description = 'Choose from the following: lenny, tableflip, shrug, bignose, iwant, musicdude, wot, bomb, orlly, money.   b    Type *textface [face].'
+              em.description = 'Choose from the following: lenny, tableflip, shrug, bignose, iwant, musicdude, wot, bomb, orlly, money. Type *textface [face].'
               em.set_footer(text="Don't you dare question my names for the textfaces.")
               await ctx.send(embed=em)
             else:
