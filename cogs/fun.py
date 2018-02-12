@@ -252,21 +252,9 @@ class fun:
         em.description = random.choice(choices) 
         em.set_footer(text="Source: Crumblyy")
         await ctx.send(embed=em)
-    
-    
-    @commands.command()
-    async def annoy(self, ctx, member: discord.Member, times: int):
-        """Annoy! GR... Usage: *annoy [user] [no. of times]."""
-        if times > 20:
-            await ctx.message.delete()
-            await ctx.send("Due to Discord TOS and ratelimits, you may not use more than 20 pings at a time. Sorry bout that. :x:")
-        else:
-            await ctx.send("Please be advised. This command will limit itself to 1 msg/second to avoid heavy ratelimits, which stops sending messages if the msg/sec is too high. This bot may still get ratelimited, i.e. slow down or stop for a while, please be patient. The annoy will start 3 secs after this msg is sent.")
-            await asyncio.sleep(3)
-            for x in range(times):
-                await ctx.send(member.mention)
-                asyncio.sleep(1)
+
         
     
 def setup(bot): 
     bot.add_cog(fun(bot))   
+
