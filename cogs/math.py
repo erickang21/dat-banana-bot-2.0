@@ -49,7 +49,7 @@ class math:
 
 
     @commands.command()
-    async def calc(self, ctx, num1: int, sign, num2: int):
+    async def calc(self, ctx, num1=None, sign=None, num2=None):
         '''Does some simple math for you.'''
         if num1 is None:
             await ctx.send("You are missing a number. Missing Arg: num1")
@@ -61,8 +61,10 @@ class math:
             float(num1)
             float(num2)
         except ValueError:
-            await ctx.send("Enter your formula like this: *calc [number] [+|-|x|/] [number] \nExample: *calc 3 + 4")
+            await ctx.send("One of your numbers ain't a number! Enter your formula like this: *calc [number] [+|-|x|/] [number] \nExample: *calc 3 + 4")
         else:
+            num1 = float(num1)
+            num2 = float(num2)
             if sign == '+':
                 color = discord.Color(value=0x00ff00)
                 em = discord.Embed(color=color, title='Calculator')
