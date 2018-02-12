@@ -19,13 +19,13 @@ class info:
         em.description = "These are some stats for the lovely dat banana bot#0170."
         em.set_thumbnail(url="https://c1.staticflickr.com/6/5611/15804684456_0c2d30237d_z.jpg")        
         em.add_field(name='Creator', value='dat banana boi#1982')
-        em.add_field(name='Devs', value='Free TNT#5796, 4JR#2713')
+        em.add_field(name='Devs', value='Free TNT#5796')
         em.add_field(name='Number of Servers', value=f'{len(self.bot.guilds)} servers') 
-        em.add_field(name='Version', value='v4.0.1 BETA')
+        em.add_field(name='Version', value='5.0.2 BETA')
         em.add_field(name='Start Date', value='12/08/2017')
         em.add_field(name='Bot Region', value='North America')
-        em.add_field(name='Code Platform', value='GitHub')
-        em.add_field(name='Hosting Platform', value='Heroku')
+        em.add_field(name='Code Platform', value='Sublime Text')
+        em.add_field(name='Hosting Platform', value='Amazon Web Services')
         em.add_field(name='Coding Language', value='Python, discord.py')      
         await ctx.send(embed=em)
         
