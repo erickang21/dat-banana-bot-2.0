@@ -24,7 +24,6 @@ bot.load_extension("cogs.info")
 bot.load_extension("cogs.developer")
 bot.load_extension("cogs.cr")
 bot.load_extension("cogs.help")
-bot.load_extension("cogs.lol")
 bot.load_extension("cogs.coc")
 
 
@@ -45,17 +44,26 @@ async def on_ready():
         await asyncio.sleep(15)
         await bot.change_presence(game=discord.Game(name="using *help!"))
         await asyncio.sleep(15)
-        await bot.change_presence(game=discord.Game(name="in v4.0.2, BETA."))
+        await bot.change_presence(game=discord.Game(name="in v5.0.2, BETA."))
         await asyncio.sleep(15)
 
 @bot.event
 async def on_guild_join(guild):
     lol = bot.get_channel(392443319684300801)
-    em = discord.Embed(color=discord.Color(value=0xffff00))
+    em = discord.Embed(color=discord.Color(value=0x00ff00))
     em.title = "dat banana bot has arrived in a new server!"
     em.description = f"Server: {guild}"
     await lol.send(embed=em)
     await ctx.send(f"Hiya, guys in **{guild.name}**! Thanks for welcoming me! I am dat banana bot, a gud Discord bot. Try me out by typing *help!")
+
+
+@bot.event
+async def on_guild_remove(guild):
+    lol = bot.get_channel(392443319684300801)
+    em = discord.Embed(color=discord.Color(value=0xf44242))
+    em.title = "dat banana bot has been removed from a server."
+    em.description = f"Server: {guild}"
+    await lol.send(embed=em)
 
     
 @bot.event
@@ -176,7 +184,7 @@ async def _eval(ctx, *, body: str):
             if value:
                 await ctx.send(f'```py\n{value}\n```')
         else:
-            await ctx.send(f'```py\n{value}{ret}\n```')    
+            await ctx.send(f'```py\n{value}{ret}\n```')     
                        
                        
 if not os.environ.get('TOKEN'):
